@@ -1,0 +1,141 @@
+import SwiftUI
+
+struct PreparationModalView: View {
+    @Binding var isPresented: Bool
+    @State private var isChecklist1Checked = false
+    @State private var isChecklist2Checked = false
+    @State private var isChecklist3Checked = false
+
+    var body: some View {
+        ZStack {
+            
+            Color.black.opacity(0.4)
+                .ignoresSafeArea()
+                .blur(radius: 10)
+            
+            ZStack{
+                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    .fill(Color(#colorLiteral(red: 0.7920315862, green: 0.5732310414, blue: 0.3168769479, alpha: 1)))
+                    .frame(width: 322, height: 430)
+                
+                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                    .fill(Color(#colorLiteral(red: 1, green: 0.940058589, blue: 0.7803176045, alpha: 1)))
+                    .frame(width: 295, height: 380)
+                    .shadow(color: .black.opacity(0.5), radius: 5)
+                
+                ZStack{
+                    RoundedRectangle(cornerRadius: 5.0)
+                        .fill(Color(#colorLiteral(red: 0.9402096868, green: 0.3534892797, blue: 0.3253774941, alpha: 1)))
+                        .frame(width: 220, height: 50)
+                    
+                    Text("PREPARATION")
+                        .font(Font.custom("Slackey-Regular", size: 23))
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color.white)
+                        .shadow(radius: 5, x: 5)
+                        
+                }
+                .offset(y: -200)
+                
+                VStack{
+                    Text("STUDY TIME")
+                        .font(Font.custom("Slackey-Regular", size: 15))
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
+                    
+                    ZStack{
+                        RoundedRectangle(cornerRadius:15.0)
+                            .fill(Color(#colorLiteral(red: 0.9668874145, green: 0.9050707221, blue: 0.7431390882, alpha: 1)))
+                            .frame(width: 220, height: 42)
+                        
+                            Text("01 : 15 : 00")
+                                .font(Font.custom("Slackey-Regular", size: 29))
+                                .fontWeight(.bold)
+                                .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
+                    }
+                }
+                .offset(y: -120)
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    HStack {
+                        Text("Is the lighting good enough?")
+                            .foregroundStyle(.brown)
+                        Spacer()
+                        Button(action: {
+                            isChecklist1Checked.toggle()
+                        }) {
+                            Image(systemName: isChecklist1Checked ? "checkmark.square.fill" : "square")
+                                .foregroundColor(.brown)
+                        }
+                    }
+
+                    HStack {
+                        Text("Are you sitting comfortably?")
+                            .foregroundStyle(.brown)
+                        Spacer()
+                        Button(action: {
+                            isChecklist2Checked.toggle()
+                        }) {
+                            Image(systemName: isChecklist2Checked ? "checkmark.square.fill" : "square")
+                                .foregroundColor(.brown)
+                        }
+                    }
+
+                    HStack {
+                        Text("Is your environment distraction-free?")
+                            .foregroundStyle(.brown)
+                        Spacer()
+                        Button(action: {
+                            isChecklist3Checked.toggle()
+                        }) {
+                            Image(systemName: isChecklist3Checked ? "checkmark.square.fill" : "square")
+                                .foregroundColor(.brown)
+                        }
+                    }
+                    
+                    ZStack {
+                        Image("button_confirmation")
+                            .resizable()
+                            .frame(width: 160, height: 42)
+                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                        Text("START TIMER")
+                            .font(Font.custom("Slackey-Regular", size: 16))
+                            .foregroundColor(.white)
+                            .fontWeight(.bold)
+                    }
+                    .padding(.leading, 40)
+                    .padding(.top, 10)
+                }
+                .font(Font.custom("Slackey-Regular", size: 14))
+                .padding(.top, 120)
+                .padding(.horizontal, 80) // opsional untuk memberi jarak ke tepi
+
+                
+
+            }
+
+            // Popup content
+//            VStack {
+//                Image("preparation_modal") // Ganti sesuai asset popup kamu
+//                    .resizable()
+//                    .frame(width: 300, height: 400)
+//
+//                Button("Close") {
+//                    isPresented = false
+//                }
+//                .padding(.top, 20)
+//                .foregroundColor(.white)
+//            }
+//            .frame(width: 320, height: 450)
+//            .background(Color.white)
+//            .cornerRadius(20)
+//            .shadow(radius: 10)
+        }
+        .transition(.opacity)
+        .animation(.easeInOut, value: isPresented)
+    }
+}
+
+#Preview {
+    return PreparationModalView(isPresented: .constant(true))
+}

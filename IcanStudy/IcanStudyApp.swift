@@ -11,7 +11,7 @@ import SwiftUI
 struct IcanStudyApp: App {
     var body: some Scene {
         WindowGroup {
-            FishSwimView()
+            HomeView()
         }
     }
 }
