@@ -1,4 +1,5 @@
 import SwiftUI
+import AVFoundation
 
 struct FocusSessionView: View {
     @Environment(\.dismiss) private var dismiss
@@ -7,6 +8,9 @@ struct FocusSessionView: View {
 
     @State private var remainingSeconds: Int
     @State private var timer: Timer?
+    
+    @State private var audioPlayer: AVAudioPlayer?
+
 
     init(isPresented: Binding<Bool>, totalSeconds: Int) {
         self._isPresented = isPresented
@@ -23,22 +27,13 @@ struct FocusSessionView: View {
 
     var body: some View {
         ZStack {
-            // Background utama
+            
             Image("background_app")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
 
-            VStack {
-                HStack {
-                    Image("coins_indicator")
-                        .resizable()
-                        .frame(width: 129, height: 52)
-                        .padding(.top, 50)
-                        .padding(.leading, 250)
-                }
-                Spacer()
-            }
+            FishAnimationView()
 
             VStack {
                 Text(formattedTime)
@@ -75,21 +70,9 @@ struct FocusSessionView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    timer?.invalidate()
-                    dismiss()
-                }) {
-                    Image("back_button")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .padding(.top, 65)
-                }
-            }
-        }
         .onAppear {
             startTimer()
+            playSound()
         }
         .onDisappear {
             timer?.invalidate()
@@ -105,6 +88,17 @@ struct FocusSessionView: View {
                 timer?.invalidate()
                 print("Timer finished!")
                 // You can add completion logic here
+            }
+        }
+    }
+    
+    func playSound() {
+        if let soundURL = Bundle.main.url(forResource: "start_sound", withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.play()
+            } catch {
+                print("Gagal memutar audio: \(error.localizedDescription)")
             }
         }
     }
