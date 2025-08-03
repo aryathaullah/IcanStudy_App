@@ -2,11 +2,20 @@ import SwiftUI
 
 struct PreparationModalView: View {
     @Binding var isPresented: Bool
+    var totalSeconds: Int
+    
     @State private var isChecklist1Checked = false
     @State private var isChecklist2Checked = false
     @State private var isChecklist3Checked = false
     
     @State private var modalConfirmation = false
+    
+    var formattedTime: String {
+        let hours = totalSeconds / 3600
+        let minutes = (totalSeconds % 3600) / 60
+        let seconds = totalSeconds % 60
+        return String(format: "%02d : %02d : %02d", hours, minutes, seconds)
+    }
 
     var body: some View {
         ZStack {
@@ -57,7 +66,7 @@ struct PreparationModalView: View {
                             .fill(Color(#colorLiteral(red: 0.9668874145, green: 0.9050707221, blue: 0.7431390882, alpha: 1)))
                             .frame(width: 220, height: 42)
                         
-                        Text("01 : 15 : 00")
+                        Text(formattedTime)
                             .font(Font.custom("Slackey-Regular", size: 29))
                             .fontWeight(.bold)
                             .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
@@ -132,7 +141,7 @@ struct PreparationModalView: View {
         } // end of preparation modal
             
             if modalConfirmation {
-                ConfirmationModalView(isPresented: $modalConfirmation)
+                ConfirmationModalView(isPresented: $modalConfirmation, totalSeconds: totalSeconds)
             }
         }
         .transition(.opacity)
@@ -140,6 +149,3 @@ struct PreparationModalView: View {
     }
 }
 
-#Preview {
-    return PreparationModalView(isPresented: .constant(true))
-}

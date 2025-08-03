@@ -4,9 +4,15 @@ struct SlidersView: View {
     @State private var showShopPopup = false
     @Environment(\.dismiss) private var dismiss
 
+    // Waktu yang dipilih
+    @State private var selectedHour = 0
+    @State private var selectedMinute = 0
+    @State private var selectedSecond = 0
+    
+    @State private var selectedTotalSeconds = 0
+
     var body: some View {
         ZStack {
-            // Background utama
             Image("background_app")
                 .resizable()
                 .scaledToFill()
@@ -23,18 +29,62 @@ struct SlidersView: View {
                 Spacer()
             }
 
-            VStack {
+            VStack(spacing: 10) {
                 Text("Today's Study Time")
                     .font(Font.custom("Slackey-Regular", size: 24))
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
 
-                Text("00:00:00")
-                    .font(Font.custom("Slackey-Regular", size: 53))
-                    .foregroundStyle(Color.white)
-                    .fontWeight(.bold)
+                // Timer Picker (jam, menit, detik)
+                HStack(spacing: 10) {
+                    Picker(selection: $selectedHour, label: Text("Hour")) {
+                        ForEach(0..<24, id: \.self) { hour in
+                            Text(String(format: "%02d", hour))
+                                .font(Font.custom("Slackey-Regular", size: 24))
+                                .foregroundColor(.white)
+                                .tag(hour)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(width: 80, height: 120)
+                    .clipped()
+                    
+                    Text(":")
+                        .font(Font.custom("Slackey-Regular", size: 24))
+                        .foregroundColor(.white)
+
+                    Picker(selection: $selectedMinute, label: Text("Minute")) {
+                        ForEach(0..<60, id: \.self) { minute in
+                            Text(String(format: "%02d", minute))
+                                .font(Font.custom("Slackey-Regular", size: 24))
+                                .foregroundColor(.white)
+                                .tag(minute)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(width: 80, height: 120)
+                    .clipped()
+                    
+                    Text(":")
+                        .font(Font.custom("Slackey-Regular", size: 24))
+                        .foregroundColor(.white)
+
+                    Picker(selection: $selectedSecond, label: Text("Second")) {
+                        ForEach(0..<60, id: \.self) { second in
+                            Text(String(format: "%02d", second))
+                                .font(Font.custom("Slackey-Regular", size: 24))
+                                .foregroundColor(.white)
+                                .tag(second)
+                        }
+                    }
+                    .pickerStyle(.wheel)
+                    .frame(width: 80, height: 120)
+                    .clipped()
+                }
+
 
                 Button(action: {
+                    selectedTotalSeconds = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
                     showShopPopup = true
                 }) {
                     ZStack {
@@ -50,10 +100,10 @@ struct SlidersView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            .offset(y: -125)
+            .offset(y: -100)
 
             if showShopPopup {
-                PreparationModalView(isPresented: $showShopPopup)
+                PreparationModalView(isPresented: $showShopPopup, totalSeconds: selectedTotalSeconds)
             }
         }
         .navigationBarBackButtonHidden(true)

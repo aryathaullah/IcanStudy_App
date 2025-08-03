@@ -2,6 +2,9 @@ import SwiftUI
 
 struct ConfirmationModalView: View {
     @Binding var isPresented: Bool
+    var totalSeconds: Int
+    
+    @State private var focusSession = false
 
     var body: some View {
         ZStack {
@@ -34,7 +37,7 @@ struct ConfirmationModalView: View {
                         .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
                     
                     Button(action: {
-//                        modalConfirmation = true
+                        focusSession = true
                     }) {
                         // start timer button
                         ZStack {
@@ -54,15 +57,13 @@ struct ConfirmationModalView: View {
                 .multilineTextAlignment(.center)
                 .padding(.top, 20)
                 
-                    
+            if focusSession {
+                FocusSessionView(isPresented: $focusSession, totalSeconds: totalSeconds)
+            }
                     
         } // end of preparation modal
         
         .transition(.opacity)
         .animation(.easeInOut, value: isPresented)
     }
-}
-
-#Preview {
-    return ConfirmationModalView(isPresented: .constant(true))
 }
