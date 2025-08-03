@@ -18,6 +18,8 @@
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
 		04B583272E3DE466005E1A95 /* SlidersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583262E3DE466005E1A95 /* SlidersView.swift */; };
 		04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583282E3DEA63005E1A95 /* PreparationModalView.swift */; };
+		04B5832B2E3F0874005E1A95 /* ConfirmationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */; };
+		04B5832D2E3F1312005E1A95 /* FocusSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5832C2E3F1312005E1A95 /* FocusSessionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishAnimationsView.swift; sourceTree = "<group>"; };
 		04B583262E3DE466005E1A95 /* SlidersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidersView.swift; sourceTree = "<group>"; };
 		04B583282E3DEA63005E1A95 /* PreparationModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationModalView.swift; sourceTree = "<group>"; };
+		04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationModalView.swift; sourceTree = "<group>"; };
+		04B5832C2E3F1312005E1A95 /* FocusSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */,
 				0417293B2E3C4EF100EA56F4 /* HomeView.swift */,
 				04B583262E3DE466005E1A95 /* SlidersView.swift */,
+				04B5832C2E3F1312005E1A95 /* FocusSessionView.swift */,
 				041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */,
 				0476736E2E3C5CF700732F21 /* Modal */,
 				047673682E3C53CD00732F21 /* Fonts */,
@@ -101,8 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				0476736F2E3C5DE700732F21 /* ShopModalView.swift */,
-				047673712E3C642600732F21 /* VisualEffectBlur.swift */,
 				04B583282E3DEA63005E1A95 /* PreparationModalView.swift */,
+				047673712E3C642600732F21 /* VisualEffectBlur.swift */,
+				04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -188,12 +194,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				047673702E3C5DE700732F21 /* ShopModalView.swift in Sources */,
+				04B5832D2E3F1312005E1A95 /* FocusSessionView.swift in Sources */,
 				04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */,
 				04B583272E3DE466005E1A95 /* SlidersView.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
 				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
 				047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */,
+				04B5832B2E3F0874005E1A95 /* ConfirmationModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

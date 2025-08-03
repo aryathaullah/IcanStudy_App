@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SlidersView: View {
+struct FocusSessionView: View {
     @State private var showShopPopup = false
     @Environment(\.dismiss) private var dismiss
 
@@ -24,37 +24,44 @@ struct SlidersView: View {
             }
 
             VStack {
-                Text("Today's Study Time")
-                    .font(Font.custom("Slackey-Regular", size: 24))
-                    .foregroundStyle(Color.white)
-                    .fontWeight(.bold)
 
                 Text("00:00:00")
                     .font(Font.custom("Slackey-Regular", size: 53))
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
+                
+                Spacer()
+                    .frame(height: 70)
 
                 Button(action: {
-                    showShopPopup = true
+                    print("quit")
                 }) {
                     ZStack {
-                        Image("button_confirmation")
+                        Image("button_quit")
                             .resizable()
                             .frame(width: 180, height: 52)
                             .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                        Text("START")
-                            .font(Font.custom("Slackey-Regular", size: 33))
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
+                    }
+                }
+                .buttonStyle(PlainButtonStyle())
+                
+                Button(action: {
+                    print("break")
+                }) {
+                    ZStack {
+                        Image("button_break")
+                            .resizable()
+                            .frame(width: 218, height: 52)
+                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            .offset(y: -125)
 
             if showShopPopup {
                 PreparationModalView(isPresented: $showShopPopup)
             }
+            
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -73,5 +80,5 @@ struct SlidersView: View {
 }
 
 #Preview {
-    SlidersView()
+    FocusSessionView()
 }
