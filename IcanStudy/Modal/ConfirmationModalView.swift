@@ -28,6 +28,16 @@ struct ConfirmationModalView: View {
                     .frame(width: 318, height: 232)
                     .shadow(color: .black.opacity(0.5), radius: 5)
                 }
+            
+                Button(action: {
+                    isPresented = false
+                }) {
+                    Image("red_back_button")
+                        .resizable()
+                        .frame(width: 69, height: 69)
+                        .padding()
+                }
+                .position(x: 350, y: 310)
                 
                 // study time
                 VStack{

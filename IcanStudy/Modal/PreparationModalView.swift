@@ -54,6 +54,16 @@ struct PreparationModalView: View {
                 }
                 .offset(y: -200)
                 
+                Button(action: {
+                    isPresented = false
+                }) {
+                    Image("red_back_button")
+                        .resizable()
+                        .frame(width: 69, height: 69)
+                        .padding()
+                }
+                .position(x: 350, y: 225)
+                
                 // study time
                 VStack{
                     Text("STUDY TIME")
@@ -149,3 +159,6 @@ struct PreparationModalView: View {
     }
 }
 
+#Preview {
+    PreparationModalView(isPresented: .constant(true), totalSeconds: 200)
+}

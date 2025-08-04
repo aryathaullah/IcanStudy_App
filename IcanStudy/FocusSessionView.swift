@@ -2,7 +2,6 @@ import SwiftUI
 import AVFoundation
 
 struct FocusSessionView: View {
-    @Environment(\.dismiss) private var dismiss
     @Binding var isPresented: Bool
     let initialSeconds: Int
 
@@ -18,13 +17,6 @@ struct FocusSessionView: View {
         self._remainingSeconds = State(initialValue: totalSeconds)
     }
 
-    var formattedTime: String {
-        let hours = remainingSeconds / 3600
-        let minutes = (remainingSeconds % 3600) / 60
-        let seconds = remainingSeconds % 60
-        return String(format: "%02d : %02d : %02d", hours, minutes, seconds)
-    }
-
     var body: some View {
         ZStack {
             
@@ -36,7 +28,7 @@ struct FocusSessionView: View {
             FishAnimationView()
 
             VStack {
-                Text(formattedTime)
+                Text(TimeFormatterHelper.formatTime(seconds: remainingSeconds))
                     .font(Font.custom("Slackey-Regular", size: 53))
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
@@ -47,7 +39,6 @@ struct FocusSessionView: View {
                 Button(action: {
                     timer?.invalidate()
                     print("Quit pressed")
-                    dismiss()
                 }) {
                     Image("button_quit")
                         .resizable()
@@ -69,7 +60,7 @@ struct FocusSessionView: View {
                 .buttonStyle(PlainButtonStyle())
             }
         }
-        .navigationBarBackButtonHidden(true)
+//        .navigationBarBackButtonHidden(true)
         .onAppear {
             startTimer()
             playSound()
@@ -87,7 +78,6 @@ struct FocusSessionView: View {
             } else {
                 timer?.invalidate()
                 print("Timer finished!")
-                // You can add completion logic here
             }
         }
     }
@@ -102,4 +92,5 @@ struct FocusSessionView: View {
             }
         }
     }
+    
 }

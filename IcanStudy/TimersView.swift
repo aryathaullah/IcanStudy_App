@@ -1,42 +1,54 @@
 import SwiftUI
 
-struct SlidersView: View {
-    @State private var showShopPopup = false
-    @Environment(\.dismiss) private var dismiss
-
-    // Waktu yang dipilih
+struct TimersView: View {
+    @State private var showPreparationModal = false
     @State private var selectedHour = 0
     @State private var selectedMinute = 0
     @State private var selectedSecond = 0
-    
     @State private var selectedTotalSeconds = 0
+    
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
+        
         ZStack {
+            
+            // background app
             Image("background_app")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-
-            VStack {
-                HStack {
-                    Image("coins_indicator")
-                        .resizable()
-                        .frame(width: 129, height: 52)
-                        .padding(.top, 50)
-                        .padding(.leading, 250)
-                }
-                Spacer()
+            
+            Button(action: {
+               
+            }) {
+                Image("back_button")
+                    .resizable()
+                    .frame(width: 55, height: 55)
+                    .padding(.top, -370)
+                    .padding(.leading, -170)
             }
-
+            
+            // coins indicator
+            Image("coins_indicator")
+                .resizable()
+                .frame(width: 129, height: 52)
+                .padding(.top, -370)
+                .padding(.leading, 250)
+            
+            // timer
             VStack(spacing: 10) {
+                
+                // timer title
                 Text("Today's Study Time")
                     .font(Font.custom("Slackey-Regular", size: 24))
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
 
-                // Timer Picker (jam, menit, detik)
-                HStack(spacing: 10) {
+                // timer picker
+                HStack(spacing: 5) {
+                    
+                    // hours picker
                     Picker(selection: $selectedHour, label: Text("Hour")) {
                         ForEach(0..<24, id: \.self) { hour in
                             Text(String(format: "%02d", hour))
@@ -52,7 +64,8 @@ struct SlidersView: View {
                     Text(":")
                         .font(Font.custom("Slackey-Regular", size: 24))
                         .foregroundColor(.white)
-
+                    
+                    // minutes picker
                     Picker(selection: $selectedMinute, label: Text("Minute")) {
                         ForEach(0..<60, id: \.self) { minute in
                             Text(String(format: "%02d", minute))
@@ -68,7 +81,8 @@ struct SlidersView: View {
                     Text(":")
                         .font(Font.custom("Slackey-Regular", size: 24))
                         .foregroundColor(.white)
-
+                    
+                    // second picker
                     Picker(selection: $selectedSecond, label: Text("Second")) {
                         ForEach(0..<60, id: \.self) { second in
                             Text(String(format: "%02d", second))
@@ -82,10 +96,10 @@ struct SlidersView: View {
                     .clipped()
                 }
 
-
+                // start button
                 Button(action: {
                     selectedTotalSeconds = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
-                    showShopPopup = true
+                    showPreparationModal = true
                 }) {
                     ZStack {
                         Image("button_confirmation")
@@ -101,27 +115,17 @@ struct SlidersView: View {
                 .buttonStyle(PlainButtonStyle())
             }
             .offset(y: -100)
-
-            if showShopPopup {
-                PreparationModalView(isPresented: $showShopPopup, totalSeconds: selectedTotalSeconds)
+            
+            // preparation modal
+            if showPreparationModal {
+                PreparationModalView(isPresented: $showPreparationModal, totalSeconds: selectedTotalSeconds)
             }
+            
         }
         .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    dismiss()
-                }) {
-                    Image("back_button")
-                        .resizable()
-                        .frame(width: 55, height: 55)
-                        .padding(.top, 65)
-                }
-            }
-        }
     }
 }
 
 #Preview {
-    SlidersView()
+    TimersView()
 }

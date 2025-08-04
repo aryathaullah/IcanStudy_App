@@ -1,5 +1,3 @@
-// FishAnimationView.swift
-
 import SwiftUI
 
 struct FishFood: Identifiable {

@@ -1,61 +1,73 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var showShopPopup = false
 
     var body: some View {
-        NavigationStack {
+     
+        NavigationStack{
+            
             ZStack {
+                
+                // background app ( sea )
                 Image("background_app")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
                 
+                // fish animations
                 FishAnimationView()
-
-                VStack {
-                    HStack {
-                        Image("coins_indicator")
-                            .resizable()
-                            .frame(width: 129, height: 52)
-                            .padding(.top, 50)
-                            .padding(.leading, 250)
-                    }
-                    Spacer()
+                
+                // coins indicators
+                ZStack {
+                    Image("coins_indicator")
+                        .resizable()
+                    
+                    Text("0")
+                        .padding(.leading, 35)
                 }
-
+                .frame(width: 129, height: 52)
+                .padding(.top, -370)
+                .padding(.leading, 250)
+                
+                // home components
                 VStack {
+                    
+                    // home title
                     Text("Today's Study Time")
                         .font(Font.custom("Slackey-Regular", size: 24))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
-
+                    
+                    // user's study hours
                     Text("00:00:00")
                         .font(Font.custom("Slackey-Regular", size: 53))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
-                    NavigationStack{
-                        NavigationLink(destination: SlidersView()) {
-                            ZStack {
-                                Image("button_confirmation")
-                                    .resizable()
-                                    .frame(width: 180, height: 52)
-                                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                                Text("FOCUS")
-                                    .font(Font.custom("Slackey-Regular", size: 33))
-                                    .foregroundColor(.white)
-                                    .fontWeight(.bold)
-                            }
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                    }
-                    }
-                    .offset(y: -125)
                     
-
+                    
+                    
+                    NavigationLink(destination: TimersView()) {
+                        ZStack {
+                            Image("button_confirmation")
+                                .resizable()
+                                .frame(width: 180, height: 52)
+                                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                            Text("FOCUS")
+                                .font(Font.custom("Slackey-Regular", size: 33))
+                                .foregroundColor(.white)
+                                .fontWeight(.bold)
+                        }
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                }
+                .offset(y: -125)
+                
+                // main action button
                 HStack {
+                    
+                    // shops action button
                     Button(action: {
-                        showShopPopup = true
+                        print("SHOP")
                     }) {
                         Image("shops_action_button")
                             .resizable()
@@ -63,9 +75,10 @@ struct HomeView: View {
                             .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     }
                     .buttonStyle(PlainButtonStyle())
-
+                    
                     Spacer().frame(width: 150)
-
+                    
+                    // streak action button
                     Button(action: {
                         print("STREAK")
                     }) {
@@ -77,14 +90,6 @@ struct HomeView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
                 .offset(y: 350)
-
-//                if showShopPopup {
-//                    ShopPopupView {
-//                        showShopPopup = false
-//                    }
-//                    .transition(.scale)
-//                    .zIndex(1)
-//                }
             }
         }
     }

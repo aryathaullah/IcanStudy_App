@@ -1,17 +1,14 @@
-//
-//  IcanStudyApp.swift
-//  IcanStudy
-//
-//  Created by Mac on 01/08/25.
-//
-
 import SwiftUI
+import SwiftData
 
 @main
 struct IcanStudyApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NavigationStack{
+                HomeView()
+            }
         }
+        .modelContainer(for: User.self)
     }
 }
