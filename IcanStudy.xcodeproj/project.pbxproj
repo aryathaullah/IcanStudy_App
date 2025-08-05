@@ -11,9 +11,10 @@
 		041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */; };
 		0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */; };
 		0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417293B2E3C4EF100EA56F4 /* HomeView.swift */; };
-		0476736C2E3C53EC00732F21 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 047673692E3C53EC00732F21 /* LICENSE.txt */; };
-		0476736D2E3C53EC00732F21 /* Slackey-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */; };
 		047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047673712E3C642600732F21 /* VisualEffectBlur.swift */; };
+		047C5F452E41A70700005C88 /* ConfirmationModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */; };
+		047C5F472E41A71600005C88 /* ShopmodalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5F462E41A71600005C88 /* ShopmodalView.swift */; };
+		047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */; };
 		04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C7492E3F50EC003A6E76 /* User.swift */; };
 		04A6C74C2E3F597E003A6E76 /* TimeFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */; };
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
@@ -30,9 +31,10 @@
 		041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0417293B2E3C4EF100EA56F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		047673672E3C53C400732F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		047673692E3C53EC00732F21 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Slackey-Regular.ttf"; sourceTree = "<group>"; };
 		047673712E3C642600732F21 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationModalViews.swift; sourceTree = "<group>"; };
+		047C5F462E41A71600005C88 /* ShopmodalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopmodalView.swift; sourceTree = "<group>"; };
+		047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Slackey-Regular.ttf"; sourceTree = "<group>"; };
 		04A6C7492E3F50EC003A6E76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatterHelper.swift; sourceTree = "<group>"; };
 		04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishAnimationsView.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		0417292A2E3C4D2C00EA56F4 /* IcanStudy */ = {
 			isa = PBXGroup;
 			children = (
+				047C5F4A2E41A8D000005C88 /* Preview Content */,
 				047673672E3C53C400732F21 /* Info.plist */,
 				0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */,
 				0417293B2E3C4EF100EA56F4 /* HomeView.swift */,
@@ -82,30 +85,12 @@
 				04A6C7462E3F3F62003A6E76 /* LaunchScreen */,
 				0476736E2E3C5CF700732F21 /* Modal */,
 				04A6C7472E3F49CA003A6E76 /* Tools */,
-				047673682E3C53CD00732F21 /* Fonts */,
 				04B583302E3F2914005E1A95 /* Sound */,
 				04B583232E3DE2DC005E1A95 /* Animations */,
 				0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */,
+				047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */,
 			);
 			path = IcanStudy;
-			sourceTree = "<group>";
-		};
-		047673682E3C53CD00732F21 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				0476736B2E3C53EC00732F21 /* Slackey */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		0476736B2E3C53EC00732F21 /* Slackey */ = {
-			isa = PBXGroup;
-			children = (
-				0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */,
-				047673692E3C53EC00732F21 /* LICENSE.txt */,
-			);
-			name = Slackey;
-			path = ../../../../../Downloads/Slackey;
 			sourceTree = "<group>";
 		};
 		0476736E2E3C5CF700732F21 /* Modal */ = {
@@ -113,8 +98,17 @@
 			children = (
 				04B583282E3DEA63005E1A95 /* PreparationModalView.swift */,
 				04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */,
+				047C5F462E41A71600005C88 /* ShopmodalView.swift */,
+				047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		047C5F4A2E41A8D000005C88 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		04A6C7462E3F3F62003A6E76 /* LaunchScreen */ = {
@@ -216,9 +210,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0476736C2E3C53EC00732F21 /* LICENSE.txt in Resources */,
 				0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */,
-				0476736D2E3C53EC00732F21 /* Slackey-Regular.ttf in Resources */,
+				047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */,
 				041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,8 +228,10 @@
 				04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */,
 				04B583272E3DE466005E1A95 /* TimersView.swift in Sources */,
 				04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */,
+				047C5F452E41A70700005C88 /* ConfirmationModalViews.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
+				047C5F472E41A71600005C88 /* ShopmodalView.swift in Sources */,
 				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
 				047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */,
 				04B5832B2E3F0874005E1A95 /* ConfirmationModalView.swift in Sources */,

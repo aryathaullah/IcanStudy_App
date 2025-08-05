@@ -9,18 +9,24 @@ struct ShopItem: Identifiable {
 
 struct ShopmodalView: View {
     let items: [ShopItem] = [
-        ShopItem(name: "Sea Lion", imageName: "sea_lion", price: 1000),
-        ShopItem(name: "Shark", imageName: "shark", price: 850),
-        ShopItem(name: "Turtle", imageName: "turtle", price: 200),
-        ShopItem(name: "Dolphin", imageName: "dolphin", price: 200),
-        ShopItem(name: "Crab", imageName: "crab", price: 100),
-        ShopItem(name: "Pufferfish", imageName: "pufferfish", price: 100),
-        ShopItem(name: "Clownfish", imageName: "clownfish", price: 100),
-        ShopItem(name: "Seahorse", imageName: "seahorse", price: 100),
-        ShopItem(name: "Octopus", imageName: "octopus", price: 100),
-        ShopItem(name: "Hammerhead", imageName: "hammerhead", price: 100),
-        ShopItem(name: "Tropical Fish", imageName: "tropical_fish", price: 100),
-        ShopItem(name: "Striped Fish", imageName: "striped_fish", price: 100)
+        ShopItem(name: "Sea Lion", imageName: "f1", price: 1000),
+        ShopItem(name: "Shark", imageName: "f2", price: 850),
+        ShopItem(name: "Turtle", imageName: "f3", price: 200),
+        ShopItem(name: "Dolphin", imageName: "f4", price: 200),
+        ShopItem(name: "Crab", imageName: "f5", price: 100),
+        ShopItem(name: "Pufferfish", imageName: "f6", price: 100),
+        ShopItem(name: "Clownfish", imageName: "f7", price: 100),
+        ShopItem(name: "Seahorse", imageName: "f8", price: 100),
+        ShopItem(name: "Octopus", imageName: "f9", price: 100),
+        ShopItem(name: "Hammerhead", imageName: "f10", price: 100),
+        ShopItem(name: "Tropical Fish", imageName: "f11", price: 100),
+        ShopItem(name: "Striped Fisha", imageName: "f12", price: 100),
+        ShopItem(name: "Clownfisha", imageName: "f13", price: 100),
+        ShopItem(name: "Seahorsae", imageName: "f14", price: 100),
+        ShopItem(name: "Octopuas", imageName: "f15", price: 100),
+        ShopItem(name: "Hammerhaead", imageName: "f16", price: 100),
+        ShopItem(name: "Tropicaal Fish", imageName: "f17", price: 100),
+        ShopItem(name: "Stripead Fish", imageName: "f18", price: 100)
     ]
 
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
@@ -74,15 +80,15 @@ struct ShopmodalView: View {
                         
                         
                         
-//                        Button(action: {
-//                            //nanti ini bkl bekerja
-//                        }) {
-//                            Image("red_back_button")
-//                                .resizable()
-//                                .frame(width: 69, height: 69)
-//                                .padding()
-//                        }
-//                        .position(x: 350, y: 225)
+                        Button(action: {
+                            //nanti ini bkl bekerja
+                        }) {
+                            Image("red_back_button")
+                                .resizable()
+                                .frame(width: 69, height: 69)
+                                .padding()
+                        }
+                        .position(x: 350, y: 225)
                     }
                     .position(x:150, y: 125)
                     
@@ -95,8 +101,8 @@ struct ShopmodalView: View {
                                     Image(item.imageName)
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 60, height: 70)
-                                        .background(Color.white.opacity(0.4))
+                                        .frame(width: 70, height: 60)
+                                        .background(Color.white.opacity(0.7))
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                     Button(action: {
@@ -129,7 +135,7 @@ struct ShopmodalView: View {
 
                     
                 }
-                .frame(width: 300, height: 690)
+                .frame(width: 300, height: 685)
             }
 
             if let selectedItem = selectedItem {
