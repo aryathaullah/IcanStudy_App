@@ -1,9 +1,12 @@
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
 
     var body: some View {
-     
+        
         NavigationStack{
             
             ZStack {
@@ -22,7 +25,7 @@ struct HomeView: View {
                     Image("coins_indicator")
                         .resizable()
                     
-                    Text("0")
+                    Text("\(users.first?.coins ?? 0)")
                         .padding(.leading, 35)
                 }
                 .frame(width: 129, height: 52)
@@ -97,4 +100,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .modelContainer(for: User.self)
 }

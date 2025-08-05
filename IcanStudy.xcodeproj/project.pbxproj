@@ -11,6 +11,11 @@
 		041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */; };
 		0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */; };
 		0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417293B2E3C4EF100EA56F4 /* HomeView.swift */; };
+		043D8B2B2E40E3AA00BC5F4A /* CoinControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */; };
+		043D8B2D2E418C7D00BC5F4A /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */; };
+		043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */; };
+		043D8B312E4194B700BC5F4A /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B302E4194B700BC5F4A /* Shop.swift */; };
+		043D8B342E41AEFC00BC5F4A /* SlidersConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */; };
 		0476736C2E3C53EC00732F21 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 047673692E3C53EC00732F21 /* LICENSE.txt */; };
 		0476736D2E3C53EC00732F21 /* Slackey-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */; };
 		047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047673712E3C642600732F21 /* VisualEffectBlur.swift */; };
@@ -29,6 +34,11 @@
 		0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0417293B2E3C4EF100EA56F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinControl.swift; sourceTree = "<group>"; };
+		043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
+		043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitModalView.swift; sourceTree = "<group>"; };
+		043D8B302E4194B700BC5F4A /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidersConfirmation.swift; sourceTree = "<group>"; };
 		047673672E3C53C400732F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		047673692E3C53EC00732F21 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Slackey-Regular.ttf"; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 			children = (
 				04B583282E3DEA63005E1A95 /* PreparationModalView.swift */,
 				04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */,
+				043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -130,6 +141,9 @@
 			children = (
 				047673712E3C642600732F21 /* VisualEffectBlur.swift */,
 				04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */,
+				043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */,
+				043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */,
+				043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -138,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				04A6C7492E3F50EC003A6E76 /* User.swift */,
+				043D8B302E4194B700BC5F4A /* Shop.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -230,14 +245,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043D8B2B2E40E3AA00BC5F4A /* CoinControl.swift in Sources */,
 				04B5832D2E3F1312005E1A95 /* FocusSessionView.swift in Sources */,
 				04A6C74C2E3F597E003A6E76 /* TimeFormatterHelper.swift in Sources */,
 				04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */,
 				04B583272E3DE466005E1A95 /* TimersView.swift in Sources */,
 				04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */,
+				043D8B2D2E418C7D00BC5F4A /* AudioHelper.swift in Sources */,
+				043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
 				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
+				043D8B342E41AEFC00BC5F4A /* SlidersConfirmation.swift in Sources */,
+				043D8B312E4194B700BC5F4A /* Shop.swift in Sources */,
 				047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */,
 				04B5832B2E3F0874005E1A95 /* ConfirmationModalView.swift in Sources */,
 			);

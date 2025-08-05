@@ -9,6 +9,8 @@ struct PreparationModalView: View {
     @State private var isChecklist3Checked = false
     
     @State private var modalConfirmation = false
+    @State private var SessionSkipped = false
+    
     
     var formattedTime: String {
         let hours = totalSeconds / 3600
@@ -127,7 +129,11 @@ struct PreparationModalView: View {
                     }
                     
                     Button(action: {
-                        modalConfirmation = true
+                        if isChecklist1Checked && isChecklist2Checked && isChecklist3Checked {
+                            SessionSkipped = true
+                        } else {
+                            modalConfirmation = true
+                        }
                     }) {
                         // start timer button
                         ZStack {
@@ -149,7 +155,9 @@ struct PreparationModalView: View {
                 .padding(.top, 120)
                 .padding(.horizontal, 80)
         } // end of preparation modal
-            
+            if SessionSkipped {
+                FocusSessionView(isPresented: $SessionSkipped, totalSeconds: totalSeconds)
+            }
             if modalConfirmation {
                 ConfirmationModalView(isPresented: $modalConfirmation, totalSeconds: totalSeconds)
             }

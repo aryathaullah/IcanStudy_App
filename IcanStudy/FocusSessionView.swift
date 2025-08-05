@@ -1,14 +1,19 @@
 import SwiftUI
+import SwiftData
 import AVFoundation
 
 struct FocusSessionView: View {
+    @Environment(\.modelContext) private var modelContext
+
     @Binding var isPresented: Bool
     let initialSeconds: Int
 
     @State private var remainingSeconds: Int
     @State private var timer: Timer?
+    @State private var showQuitModal = false
     
     @State private var audioPlayer: AVAudioPlayer?
+    
 
 
     init(isPresented: Binding<Bool>, totalSeconds: Int) {
@@ -38,7 +43,7 @@ struct FocusSessionView: View {
 
                 Button(action: {
                     timer?.invalidate()
-                    print("Quit pressed")
+                    showQuitModal = true
                 }) {
                     Image("button_quit")
                         .resizable()
@@ -50,7 +55,7 @@ struct FocusSessionView: View {
                 Button(action: {
                     timer?.invalidate()
                     print("Break pressed")
-                    // Add break logic here
+                    
                 }) {
                     Image("button_break")
                         .resizable()
@@ -60,14 +65,19 @@ struct FocusSessionView: View {
                 .buttonStyle(PlainButtonStyle())
             }
         }
-//        .navigationBarBackButtonHidden(true)
+
         .onAppear {
             startTimer()
-            playSound()
+            AudioHelper.playSound(named: "start_sound")
         }
         .onDisappear {
             timer?.invalidate()
         }
+        
+        if showQuitModal {
+                QuitModalView(isPresented: $showQuitModal)
+        }
+        
     }
 
     private func startTimer() {
@@ -77,20 +87,8 @@ struct FocusSessionView: View {
                 remainingSeconds -= 1
             } else {
                 timer?.invalidate()
-                print("Timer finished!")
+                CoinControl.rewardCoins(forSeconds: initialSeconds, context: modelContext)
             }
         }
     }
-    
-    func playSound() {
-        if let soundURL = Bundle.main.url(forResource: "start_sound", withExtension: "mp3") {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.play()
-            } catch {
-                print("Gagal memutar audio: \(error.localizedDescription)")
-            }
-        }
-    }
-    
 }

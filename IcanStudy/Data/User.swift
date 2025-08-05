@@ -5,6 +5,7 @@ import SwiftData
 class User {
     var coins: Int
     
+    
     init(coins: Int) {
         self.coins = coins
     }
