@@ -1,0 +1,80 @@
+import SwiftUI
+import SwiftData
+
+struct ConfirmationModalViews: View {
+    let item: ShopItem
+    let onConfirm: () -> Void
+    let onCancel: () -> Void
+    @State private var showModal = false
+
+   
+    
+    var body: some View {
+        
+        
+        ZStack {
+            Color.black.opacity(0.6)
+                .ignoresSafeArea()
+
+            RoundedRectangle(cornerRadius: 25.0)
+                .fill(Color(#colorLiteral(red: 0.792, green: 0.573, blue: 0.316, alpha: 1)))
+                .frame(width: 302, height: 300)
+
+            RoundedRectangle(cornerRadius: 25.0)
+                .fill(Color(#colorLiteral(red: 1, green: 0.94, blue: 0.78, alpha: 1)))
+                .frame(width: 280, height: 280)
+                .shadow(color: .black.opacity(0.5), radius: 5)
+            
+            VStack(spacing: 20) {
+                Text("Confirm Purchase?")
+                    .font(.title2)
+                    .bold()
+
+                Image(item.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+
+                Text("Buy \(item.name) for \(item.price) coins?")
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+
+                HStack(spacing: 20) {
+                    Button("Cancel") {
+                        onCancel()
+                    }
+//                    .padding()
+                    .frame(width: 100, height: 40)
+                    .background(Color.gray)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+
+                    Button("Buy") {
+                        if 1+1==2{
+//                        print("\()")
+                            
+                            onCancel()
+                            showModal = true
+                        }
+                            
+                        else{
+//                          onConfirm()
+                        }
+                    }
+                    .padding()
+                    .frame(width: 100,height: 40)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+            }
+            .padding()
+            .frame(width: 300)
+        }
+    }
+}
+
+
+
