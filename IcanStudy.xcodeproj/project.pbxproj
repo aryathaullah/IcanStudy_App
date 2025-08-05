@@ -14,6 +14,8 @@
 		0476736C2E3C53EC00732F21 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 047673692E3C53EC00732F21 /* LICENSE.txt */; };
 		0476736D2E3C53EC00732F21 /* Slackey-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */; };
 		047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047673712E3C642600732F21 /* VisualEffectBlur.swift */; };
+		047C5F452E41A70700005C88 /* ConfirmationModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */; };
+		047C5F472E41A71600005C88 /* ShopmodalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5F462E41A71600005C88 /* ShopmodalView.swift */; };
 		04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C7492E3F50EC003A6E76 /* User.swift */; };
 		04A6C74C2E3F597E003A6E76 /* TimeFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */; };
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
@@ -33,6 +35,8 @@
 		047673692E3C53EC00732F21 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		0476736A2E3C53EC00732F21 /* Slackey-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Slackey-Regular.ttf"; sourceTree = "<group>"; };
 		047673712E3C642600732F21 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationModalViews.swift; sourceTree = "<group>"; };
+		047C5F462E41A71600005C88 /* ShopmodalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopmodalView.swift; sourceTree = "<group>"; };
 		04A6C7492E3F50EC003A6E76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatterHelper.swift; sourceTree = "<group>"; };
 		04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishAnimationsView.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			children = (
 				04B583282E3DEA63005E1A95 /* PreparationModalView.swift */,
 				04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */,
+				047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */,
+				047C5F462E41A71600005C88 /* ShopmodalView.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -235,8 +241,10 @@
 				04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */,
 				04B583272E3DE466005E1A95 /* TimersView.swift in Sources */,
 				04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */,
+				047C5F452E41A70700005C88 /* ConfirmationModalViews.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
+				047C5F472E41A71600005C88 /* ShopmodalView.swift in Sources */,
 				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
 				047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */,
 				04B5832B2E3F0874005E1A95 /* ConfirmationModalView.swift in Sources */,
