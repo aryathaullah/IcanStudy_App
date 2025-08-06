@@ -2,10 +2,13 @@ import SwiftUI
 import SwiftData
 
 struct ConfirmationModalViews: View {
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
+    
     let item: ShopItem
     let onConfirm: () -> Void
-    let onCancel: () -> Void
-    @State private var showModal = false
+    let onCancel: (_ message:String) -> Void
+    
 
    
     
@@ -34,7 +37,7 @@ struct ConfirmationModalViews: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
-                    .background(Color.white)
+                 
                     .clipShape(RoundedRectangle(cornerRadius: 15))
 
                 Text("Buy \(item.name) for \(item.price) coins?")
@@ -43,7 +46,7 @@ struct ConfirmationModalViews: View {
 
                 HStack(spacing: 20) {
                     Button("Cancel") {
-                        onCancel()
+                        onCancel("cancel")
                     }
 //                    .padding()
                     .frame(width: 100, height: 40)
@@ -52,15 +55,24 @@ struct ConfirmationModalViews: View {
                     .cornerRadius(10)
 
                     Button("Buy") {
-                        if 1+1==2{
+//                        print("Buy")
+//                        guard let coin = users.first?.coins else{
+//                            return
+//                        }
+//                        print("Get cooin")
+                        if 1 + 1 == 2{
 //                        print("\()")
                             
-                            onCancel()
-                            showModal = true
+                            onConfirm()
+                            print("duit cukup, up ikan ")
+                            FishStorageManager.saveFishNames(currentFishNames)
+
+                           
                         }
-                            
                         else{
-//                          onConfirm()
+                            onCancel("no money")
+//                            showModal = true
+//                            print("duit kurang")
                         }
                     }
                     .padding()
@@ -68,10 +80,14 @@ struct ConfirmationModalViews: View {
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+                    
+                    
                 }
             }
             .padding()
             .frame(width: 300)
+            
+
         }
     }
 }

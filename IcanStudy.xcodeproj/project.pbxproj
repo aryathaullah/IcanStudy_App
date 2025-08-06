@@ -12,15 +12,10 @@
 		0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */; };
 		0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417293B2E3C4EF100EA56F4 /* HomeView.swift */; };
 		0434834B2E41BD4B006193F8 /* ConfirmationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */; };
-		0434834D2E41BD55006193F8 /* SlidersConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */; };
-		043D8B2B2E40E3AA00BC5F4A /* CoinControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */; };
-		043D8B2D2E418C7D00BC5F4A /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */; };
 		043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */; };
 		04743BBA2E4234ED006BC6A4 /* SData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04743BB92E4234ED006BC6A4 /* SData.swift */; };
-		047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047673712E3C642600732F21 /* VisualEffectBlur.swift */; };
 		047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */; };
 		04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C7492E3F50EC003A6E76 /* User.swift */; };
-		04A6C74C2E3F597E003A6E76 /* TimeFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */; };
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
 		04B583272E3DE466005E1A95 /* TimersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583262E3DE466005E1A95 /* TimersView.swift */; };
 		04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583282E3DEA63005E1A95 /* PreparationModalView.swift */; };
@@ -33,16 +28,11 @@
 		0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0417293B2E3C4EF100EA56F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinControl.swift; sourceTree = "<group>"; };
-		043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitModalView.swift; sourceTree = "<group>"; };
-		043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidersConfirmation.swift; sourceTree = "<group>"; };
 		04743BB92E4234ED006BC6A4 /* SData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SData.swift; sourceTree = "<group>"; };
 		047673672E3C53C400732F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		047673712E3C642600732F21 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Slackey-Regular.ttf"; sourceTree = "<group>"; };
 		04A6C7492E3F50EC003A6E76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatterHelper.swift; sourceTree = "<group>"; };
 		04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishAnimationsView.swift; sourceTree = "<group>"; };
 		04B583262E3DE466005E1A95 /* TimersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersView.swift; sourceTree = "<group>"; };
 		04B583282E3DEA63005E1A95 /* PreparationModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationModalView.swift; sourceTree = "<group>"; };
@@ -95,7 +85,6 @@
 				04A6C7482E3F50A3003A6E76 /* Data */,
 				04A6C7462E3F3F62003A6E76 /* LaunchScreen */,
 				0476736E2E3C5CF700732F21 /* Modal */,
-				04A6C7472E3F49CA003A6E76 /* Tools */,
 				04B583302E3F2914005E1A95 /* Sound */,
 				04B583232E3DE2DC005E1A95 /* Animations */,
 				0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */,
@@ -121,18 +110,6 @@
 				041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */,
 			);
 			path = LaunchScreen;
-			sourceTree = "<group>";
-		};
-		04A6C7472E3F49CA003A6E76 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				047673712E3C642600732F21 /* VisualEffectBlur.swift */,
-				04A6C74B2E3F597E003A6E76 /* TimeFormatterHelper.swift */,
-				043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */,
-				043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */,
-				043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		04A6C7482E3F50A3003A6E76 /* Data */ = {
@@ -234,21 +211,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0434834D2E41BD55006193F8 /* SlidersConfirmation.swift in Sources */,
 				0434834B2E41BD4B006193F8 /* ConfirmationModalView.swift in Sources */,
-				043D8B2B2E40E3AA00BC5F4A /* CoinControl.swift in Sources */,
 				04B5832D2E3F1312005E1A95 /* FocusSessionView.swift in Sources */,
-				04A6C74C2E3F597E003A6E76 /* TimeFormatterHelper.swift in Sources */,
 				04743BBA2E4234ED006BC6A4 /* SData.swift in Sources */,
 				04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */,
 				04B583272E3DE466005E1A95 /* TimersView.swift in Sources */,
 				04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */,
-				043D8B2D2E418C7D00BC5F4A /* AudioHelper.swift in Sources */,
 				043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
 				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
-				047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

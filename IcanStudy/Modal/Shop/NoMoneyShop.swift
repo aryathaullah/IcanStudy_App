@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NoMoneyShop: View {
+    let onQuit: () -> Void
     var body: some View {
         ZStack {
             Color.black.opacity(0.6)
@@ -31,8 +32,8 @@ struct NoMoneyShop: View {
             }
             
             Button(action: {
-                FishStorageManager.resetFishNames()
-                //nanti ini bkl bekerja, sementra utk reset button
+//                FishStorageManager.resetFishNames()
+                onQuit()
             }) {
                 Image("red_back_button")
                     .resizable()
@@ -44,5 +45,7 @@ struct NoMoneyShop: View {
     }
 }
 #Preview {
-    NoMoneyShop()
+    NoMoneyShop(onQuit: {
+        print("HakunaMatata")
+    })
 }

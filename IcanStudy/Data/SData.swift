@@ -15,6 +15,6 @@ class FishStorageManager {
     
     //buat apus, nti pas review bisa diapus y ini
     static func resetFishNames() {
-            UserDefaults.standard.removeObject(forKey: key)
+            UserDefaults.standard.set([], forKey: key)
         }
 }
