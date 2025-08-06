@@ -7,13 +7,11 @@ struct ShopItem: Identifiable {
     let imageName: String
     let price: Int
 }
+var currentFishNames = FishStorageManager.getFishNames()
 
 struct ShopmodalView: View {
-    @Environment(\.modelContext) private var context
-    @Query private var users: [User]
     
-    @Binding var isPresented: Bool
-    
+    @State var showmodal = false
     let items: [ShopItem] = [
         ShopItem(name: "Sea Lion", imageName: "f1", price: 1000),
         ShopItem(name: "Shark", imageName: "f2", price: 850),
@@ -88,7 +86,10 @@ struct ShopmodalView: View {
                         
                         
                         Button(action: {
-                            isPresented = false
+                            currentFishNames.removeAll()
+                            FishStorageManager.resetFishNames()
+                            print("pip")
+                            //nanti ini bkl bekerja, sementra utk reset button
                         }) {
                             Image("red_back_button")
                                 .resizable()
@@ -149,22 +150,52 @@ struct ShopmodalView: View {
                 ConfirmationModalViews(
                     item: selectedItem,
                     onConfirm: {
-                        onItemSelected?(selectedItem)
+//                        onItemSelected?(selectedItem)
+                        print("Confirmed purchase of: \(selectedItem.name)")
+                        currentFishNames.append(selectedItem.name)
+                        FishStorageManager.saveFishNames(currentFishNames)
+                        print(FishStorageManager.getFishNames())
                         self.selectedItem = nil
                     },
-                    onCancel: {
-                        self.selectedItem = nil
-                    }
+                    onCancel: { i in
+                        if i == "cancel"{
+                            print("ini \(i)")
+                            self.selectedItem = nil
+                        }
+                        else if i == "no money"{
+                            print("ini \(i)")
+                            self.selectedItem = nil
+                            showmodal = true
+                        }
+                    },
+                    
                 )
             }
+            
+            if showmodal {
+                NoMoneyShop(onQuit:{
+                    showmodal = false
+                    print("keluar dri nomoney")
+                    
+                })
+            }
+
         }
     }
 }
 
-//struct ShopmodalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ShopmodalView(onItemSelected: { item in
-//            print("Confirmed purchase of: \(item.name)")
-//        })
-//    }
-//}
+struct ShopmodalView_Previews: PreviewProvider {
+    static var previews: some View {
+        ShopmodalView(onItemSelected: { item in
+            print("Confirmed purchase m k  of: \(item.name)")
+            currentFishNames.append("\(item.name)")
+            FishStorageManager.saveFishNames(currentFishNames)
+            print(FishStorageManager.getFishNames())
+            
+        })
+    }
+}
+
+
+
+

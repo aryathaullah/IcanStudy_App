@@ -1,11 +1,20 @@
 import SwiftUI
+import SwiftData
 
 struct ConfirmationModalViews: View {
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
+    
     let item: ShopItem
     let onConfirm: () -> Void
-    let onCancel: () -> Void
+    let onCancel: (_ message:String) -> Void
+    
 
+   
+    
     var body: some View {
+        
+        
         ZStack {
             Color.black.opacity(0.6)
                 .ignoresSafeArea()
@@ -28,7 +37,7 @@ struct ConfirmationModalViews: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100)
-                    .background(Color.white)
+                 
                     .clipShape(RoundedRectangle(cornerRadius: 15))
 
                 Text("Buy \(item.name) for \(item.price) coins?")
@@ -37,7 +46,7 @@ struct ConfirmationModalViews: View {
 
                 HStack(spacing: 20) {
                     Button("Cancel") {
-                        onCancel()
+                        onCancel("cancel")
                     }
 //                    .padding()
                     .frame(width: 100, height: 40)
@@ -46,19 +55,42 @@ struct ConfirmationModalViews: View {
                     .cornerRadius(10)
 
                     Button("Buy") {
-                        onConfirm()
+//                        print("Buy")
+//                        guard let coin = users.first?.coins else{
+//                            return
+//                        }
+//                        print("Get cooin")
+                        if 1 + 1 == 2{
+//                        print("\()")
+                            
+                            onConfirm()
+                            print("duit cukup, up ikan ")
+                            FishStorageManager.saveFishNames(currentFishNames)
+
+                           
+                        }
+                        else{
+                            onCancel("no money")
+//                            showModal = true
+//                            print("duit kurang")
+                        }
                     }
                     .padding()
                     .frame(width: 100,height: 40)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
+                    
+                    
                 }
             }
             .padding()
             .frame(width: 300)
+            
+
         }
     }
 }
+
 
 
