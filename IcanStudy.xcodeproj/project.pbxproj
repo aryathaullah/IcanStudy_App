@@ -12,14 +12,16 @@
 		0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */; };
 		0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417293B2E3C4EF100EA56F4 /* HomeView.swift */; };
 		0434834B2E41BD4B006193F8 /* ConfirmationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */; };
-		0434834C2E41BD4B006193F8 /* ConfirmationModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */; };
-		0434834D2E41BD55006193F8 /* SlidersConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B332E41AEFC00BC5F4A /* SlidersConfirmation.swift */; };
-		043D8B2B2E40E3AA00BC5F4A /* CoinControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2A2E40E3AA00BC5F4A /* CoinControl.swift */; };
-		043D8B2D2E418C7D00BC5F4A /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2C2E418C7D00BC5F4A /* AudioHelper.swift */; };
+		043726E62E4313FE001F96F0 /* CoinControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726DD2E4313FE001F96F0 /* CoinControl.swift */; };
+		043726E72E4313FE001F96F0 /* NoMoneyShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726E32E4313FE001F96F0 /* NoMoneyShop.swift */; };
+		043726E82E4313FE001F96F0 /* SlidersConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726DE2E4313FE001F96F0 /* SlidersConfirmation.swift */; };
+		043726E92E4313FE001F96F0 /* ShopmodalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726E42E4313FE001F96F0 /* ShopmodalView.swift */; };
+		043726EA2E4313FE001F96F0 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726E02E4313FE001F96F0 /* VisualEffectBlur.swift */; };
+		043726EB2E4313FE001F96F0 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726DC2E4313FE001F96F0 /* AudioHelper.swift */; };
+		043726EC2E4313FE001F96F0 /* ConfirmationModalViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726E22E4313FE001F96F0 /* ConfirmationModalViews.swift */; };
+		043726ED2E4313FE001F96F0 /* TimeFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726DF2E4313FE001F96F0 /* TimeFormatterHelper.swift */; };
+		043726EE2E431459001F96F0 /* SData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04743BB92E4234ED006BC6A4 /* SData.swift */; };
 		043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */; };
-		043D8B312E4194B700BC5F4A /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043D8B302E4194B700BC5F4A /* Shop.swift */; };
-		047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047673712E3C642600732F21 /* VisualEffectBlur.swift */; };
-		047C5F472E41A71600005C88 /* ShopmodalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C5F462E41A71600005C88 /* ShopmodalView.swift */; };
 		047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */; };
 		04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C7492E3F50EC003A6E76 /* User.swift */; };
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
@@ -34,6 +36,14 @@
 		0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0417293B2E3C4EF100EA56F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		043726DC2E4313FE001F96F0 /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
+		043726DD2E4313FE001F96F0 /* CoinControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinControl.swift; sourceTree = "<group>"; };
+		043726DE2E4313FE001F96F0 /* SlidersConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidersConfirmation.swift; sourceTree = "<group>"; };
+		043726DF2E4313FE001F96F0 /* TimeFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormatterHelper.swift; sourceTree = "<group>"; };
+		043726E02E4313FE001F96F0 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		043726E22E4313FE001F96F0 /* ConfirmationModalViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationModalViews.swift; sourceTree = "<group>"; };
+		043726E32E4313FE001F96F0 /* NoMoneyShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMoneyShop.swift; sourceTree = "<group>"; };
+		043726E42E4313FE001F96F0 /* ShopmodalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopmodalView.swift; sourceTree = "<group>"; };
 		043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitModalView.swift; sourceTree = "<group>"; };
 		04743BB92E4234ED006BC6A4 /* SData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SData.swift; sourceTree = "<group>"; };
 		047673672E3C53C400732F21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -65,7 +75,6 @@
 		0417291F2E3C4D2C00EA56F4 = {
 			isa = PBXGroup;
 			children = (
-				04743BB52E4232CA006BC6A4 /* Preview Content */,
 				0417292A2E3C4D2C00EA56F4 /* IcanStudy */,
 				041729292E3C4D2C00EA56F4 /* Products */,
 			);
@@ -83,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				047673672E3C53C400732F21 /* Info.plist */,
+				04743BB52E4232CA006BC6A4 /* Preview Content */,
 				0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */,
 				0417293B2E3C4EF100EA56F4 /* HomeView.swift */,
 				04B583262E3DE466005E1A95 /* TimersView.swift */,
@@ -98,14 +108,36 @@
 			path = IcanStudy;
 			sourceTree = "<group>";
 		};
+		043726E12E4313FE001F96F0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				043726DC2E4313FE001F96F0 /* AudioHelper.swift */,
+				043726DD2E4313FE001F96F0 /* CoinControl.swift */,
+				043726DE2E4313FE001F96F0 /* SlidersConfirmation.swift */,
+				043726DF2E4313FE001F96F0 /* TimeFormatterHelper.swift */,
+				043726E02E4313FE001F96F0 /* VisualEffectBlur.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		043726E52E4313FE001F96F0 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				043726E12E4313FE001F96F0 /* Tools */,
+				043726E22E4313FE001F96F0 /* ConfirmationModalViews.swift */,
+				043726E32E4313FE001F96F0 /* NoMoneyShop.swift */,
+				043726E42E4313FE001F96F0 /* ShopmodalView.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		0476736E2E3C5CF700732F21 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				043726E52E4313FE001F96F0 /* Shop */,
 				04B583282E3DEA63005E1A95 /* PreparationModalView.swift */,
 				04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */,
-				047C5F462E41A71600005C88 /* ShopmodalView.swift */,
 				043D8B2E2E4190A000BC5F4A /* QuitModalView.swift */,
-				047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -157,9 +189,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				04743BC12E4247FF006BC6A4 /* Shop */,
 			);
 			name = IcanStudy;
 			productName = IcanStudy;
@@ -217,22 +246,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0434834D2E41BD55006193F8 /* SlidersConfirmation.swift in Sources */,
+				043726EE2E431459001F96F0 /* SData.swift in Sources */,
 				0434834B2E41BD4B006193F8 /* ConfirmationModalView.swift in Sources */,
-				0434834C2E41BD4B006193F8 /* ConfirmationModalViews.swift in Sources */,
-				043D8B2B2E40E3AA00BC5F4A /* CoinControl.swift in Sources */,
 				04B5832D2E3F1312005E1A95 /* FocusSessionView.swift in Sources */,
-				04743BBA2E4234ED006BC6A4 /* SData.swift in Sources */,
 				04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */,
 				04B583272E3DE466005E1A95 /* TimersView.swift in Sources */,
 				04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */,
-				043D8B2D2E418C7D00BC5F4A /* AudioHelper.swift in Sources */,
 				043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
+				043726E62E4313FE001F96F0 /* CoinControl.swift in Sources */,
+				043726E72E4313FE001F96F0 /* NoMoneyShop.swift in Sources */,
+				043726E82E4313FE001F96F0 /* SlidersConfirmation.swift in Sources */,
+				043726E92E4313FE001F96F0 /* ShopmodalView.swift in Sources */,
+				043726EA2E4313FE001F96F0 /* VisualEffectBlur.swift in Sources */,
+				043726EB2E4313FE001F96F0 /* AudioHelper.swift in Sources */,
+				043726EC2E4313FE001F96F0 /* ConfirmationModalViews.swift in Sources */,
+				043726ED2E4313FE001F96F0 /* TimeFormatterHelper.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
 				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
-				043D8B312E4194B700BC5F4A /* Shop.swift in Sources */,
-				047673722E3C642600732F21 /* VisualEffectBlur.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
