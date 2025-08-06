@@ -10,7 +10,8 @@ struct ShopItem: Identifiable {
 var currentFishNames = FishStorageManager.getFishNames()
 
 struct ShopmodalView: View {
-    
+    @Query private var users: [User]
+
     @State var showmodal = false
     let items: [ShopItem] = [
         ShopItem(name: "Sea Lion", imageName: "f1", price: 1000),

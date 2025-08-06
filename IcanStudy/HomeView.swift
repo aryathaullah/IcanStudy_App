@@ -117,7 +117,13 @@ struct HomeView: View {
                 }
                 
                 if showShopModal {
-                    ShopmodalView(isPresented: $showShopModal)
+                    ShopmodalView(onItemSelected: { item in
+//                        print("Confirmed purchase m k  of: \(item.name)")
+//                        currentFishNames.append("\(item.name)")
+//                        FishStorageManager.saveFishNames(currentFishNames)
+//                        print(FishStorageManager.getFishNames())
+                        
+                    })
                 }
                 
             }
