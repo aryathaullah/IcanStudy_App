@@ -5,12 +5,10 @@ import SwiftData
 struct IcanStudyApp: App {
     var body: some Scene {
         WindowGroup {
-            NavigationStack{
-                ShopmodalView(onItemSelected: { i in
-                    print(FishStorageManager.getFishNames())
-                })
+            NavigationStack {
+                HomeView()
             }
         }
-        .modelContainer(for: User.self)
+        .modelContainer(for: [User.self, StudySession.self])
     }
 }

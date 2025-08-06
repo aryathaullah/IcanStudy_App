@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct ShopItem: Identifiable {
     let id = UUID()
@@ -48,7 +49,8 @@ struct ShopmodalView: View {
                 ZStack {
                     Image("coins_indicator")
                         .resizable()
-                    Text("0")
+                    Text("\(users.first?.coins ?? 0)")
+                        .font(Font.custom("Slackey-Regular", size: 15))
                         .padding(.leading, 35)
                 }
                 .frame(width: 129, height: 52)
@@ -94,7 +96,7 @@ struct ShopmodalView: View {
                                 .frame(width: 69, height: 69)
                                 .padding()
                         }
-                        .position(x: 350, y: 225)
+                        .position(x: 300, y: 170)
                     }
                     .position(x:150, y: 125)
                     

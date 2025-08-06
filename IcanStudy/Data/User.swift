@@ -2,10 +2,12 @@ import Foundation
 import SwiftData
 
 @Model
-public class User {
-    public var coins: Int
+class User {
+    var coins: Int
+    var name: String
     
-    public init(coins: Int) {
+    init(coins: Int) {
         self.coins = coins
+        self.name = ""
     }
 }

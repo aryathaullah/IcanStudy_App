@@ -35,30 +35,27 @@ struct SlideToConfirmButton: View {
                     .frame(width: handleWidth, height: barHeight)
                     .shadow(radius: 3)
                     .offset(x: dragOffset)
-                    .gesture(
-                        DragGesture()
-                            .onChanged { value in
-                                let newOffset = min(max(0, value.translation.width), barWidth - handleWidth)
-                                dragOffset = newOffset
-                            }
-                            .onEnded { _ in
-                                if dragOffset > barWidth - handleWidth - 10 {
-                                    onSlideComplete()
-                                } else {
-                                    withAnimation(.easeOut) {
-                                        dragOffset = 0
-                                    }
-                                }
-                            }
-                    )
                 
                 Text(">>")    
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.gray)
             }
-            
-            
-            
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        let newOffset = min(max(0, value.translation.width), barWidth - handleWidth)
+                        dragOffset = newOffset
+                    }
+                    .onEnded { _ in
+                        if dragOffset > barWidth - handleWidth - 10 {
+                            onSlideComplete()
+                        } else {
+                            withAnimation(.easeOut) {
+                                dragOffset = 0
+                            }
+                        }
+                    }
+            )
         }
         .frame(width: barWidth, height: barHeight)
     }
