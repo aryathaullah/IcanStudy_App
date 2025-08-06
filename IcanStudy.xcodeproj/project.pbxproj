@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,6 +55,10 @@
 		04B583312E3F2932005E1A95 /* start_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = start_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		04743BB52E4232CA006BC6A4 /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		041729252E3C4D2C00EA56F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -69,6 +73,7 @@
 		0417291F2E3C4D2C00EA56F4 = {
 			isa = PBXGroup;
 			children = (
+				04743BB52E4232CA006BC6A4 /* Preview Content */,
 				0417292A2E3C4D2C00EA56F4 /* IcanStudy */,
 				041729292E3C4D2C00EA56F4 /* Products */,
 			);
@@ -85,7 +90,6 @@
 		0417292A2E3C4D2C00EA56F4 /* IcanStudy */ = {
 			isa = PBXGroup;
 			children = (
-				047C5F4A2E41A8D000005C88 /* Preview Content */,
 				047673672E3C53C400732F21 /* Info.plist */,
 				0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */,
 				0417293B2E3C4EF100EA56F4 /* HomeView.swift */,
@@ -113,13 +117,6 @@
 				047C5F442E41A70700005C88 /* ConfirmationModalViews.swift */,
 			);
 			path = Modal;
-			sourceTree = "<group>";
-		};
-		047C5F4A2E41A8D000005C88 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		04A6C7462E3F3F62003A6E76 /* LaunchScreen */ = {
