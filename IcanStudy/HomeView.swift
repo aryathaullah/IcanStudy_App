@@ -4,7 +4,19 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) private var context
     @Query private var users: [User]
+    
+    @State private var showShopModal = false
+    @State private var showStreakModal = false
+    
+    @State private var todayStudyHours = 0
 
+        var formattedTodaySession: String {
+            let hours = todayStudyHours / 3600
+            let minutes = (todayStudyHours % 3600) / 60
+            let seconds = todayStudyHours % 60
+            return String(format: "%02d : %02d : %02d", hours, minutes, seconds)
+        }
+    
     var body: some View {
         
         NavigationStack{
@@ -26,11 +38,15 @@ struct HomeView: View {
                         .resizable()
                     
                     Text("\(users.first?.coins ?? 0)")
-                        .padding(.leading, 35)
+                        .font(Font.custom("Slackey-Regular", size: 15))
+                        .foregroundStyle(Color.black)
+                        .padding(.leading, 40)
                 }
                 .frame(width: 129, height: 52)
                 .padding(.top, -370)
                 .padding(.leading, 250)
+
+
                 
                 // home components
                 VStack {
@@ -42,7 +58,7 @@ struct HomeView: View {
                         .fontWeight(.bold)
                     
                     // user's study hours
-                    Text("00:00:00")
+                    Text(StudySessionManager.getTotalTimeToday(context: context))
                         .font(Font.custom("Slackey-Regular", size: 53))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
@@ -68,9 +84,9 @@ struct HomeView: View {
                 // main action button
                 HStack {
                     
-                    // shops action button
+                    
                     Button(action: {
-                        print("SHOP")
+                        showShopModal = true
                     }) {
                         Image("shops_action_button")
                             .resizable()
@@ -83,7 +99,7 @@ struct HomeView: View {
                     
                     // streak action button
                     Button(action: {
-                        print("STREAK")
+                        showStreakModal = true
                     }) {
                         Image("streak_action_button")
                             .resizable()
@@ -93,12 +109,22 @@ struct HomeView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
                 .offset(y: 350)
+                
+                if showStreakModal {
+                    StreakModalView(isPresented: $showStreakModal)
+                }
+                
+                if showShopModal {
+                    ShopmodalView(isPresented: $showShopModal)
+                }
+                
             }
         }
+
     }
+
 }
 
 #Preview {
-    HomeView()
-        .modelContainer(for: User.self)
+    HomeView().modelContainer(for: [User.self, StudySession.self])
 }

@@ -10,12 +10,16 @@ struct FocusSessionView: View {
 
     @State private var remainingSeconds: Int
     @State private var timer: Timer?
+    @State private var studiedSeconds: Int = 0
+    @State private var breakLimit = 0
+
+    
     @State private var showQuitModal = false
+    @State private var breakConfirmation = false
+    @State private var finishConfirmation = false
     
     @State private var audioPlayer: AVAudioPlayer?
     
-
-
     init(isPresented: Binding<Bool>, totalSeconds: Int) {
         self._isPresented = isPresented
         self.initialSeconds = totalSeconds
@@ -54,7 +58,7 @@ struct FocusSessionView: View {
 
                 Button(action: {
                     timer?.invalidate()
-                    print("Break pressed")
+                    breakConfirmation = true
                     
                 }) {
                     Image("button_break")
@@ -68,14 +72,26 @@ struct FocusSessionView: View {
 
         .onAppear {
             startTimer()
-            AudioHelper.playSound(named: "start_sound")
+            AudioHelper.playSound(named: "aquarium-sound-6891")
         }
         .onDisappear {
             timer?.invalidate()
         }
         
         if showQuitModal {
-                QuitModalView(isPresented: $showQuitModal)
+            QuitModalView(isPresented: $showQuitModal, totalSeconds: initialSeconds, remainingSeconds: remainingSeconds, studiedSeconds: studiedSeconds, onContinue: {
+                resumeTimer()
+            })
+        }
+        
+        if breakConfirmation {
+                BreakConfirmation(isPresented: $breakConfirmation, totalSeconds: initialSeconds, RemainingSeconds: remainingSeconds, studiedSeconds: studiedSeconds, breakLimit: $breakLimit, onContinue: {
+                    resumeTimer()  // timer dilanjutkan saat user klik "Continue"
+                })
+        }
+        
+        if finishConfirmation {
+                FinishModalView(isPresented: $finishConfirmation, totalSeconds: initialSeconds, RemainingSeconds: remainingSeconds)
         }
         
     }
@@ -85,10 +101,29 @@ struct FocusSessionView: View {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if remainingSeconds > 0 {
                 remainingSeconds -= 1
+                studiedSeconds += 1
             } else {
                 timer?.invalidate()
+                finishConfirmation = true
+                StudySessionManager.addSession(studiedSeconds: studiedSeconds, context: modelContext)
                 CoinControl.rewardCoins(forSeconds: initialSeconds, context: modelContext)
             }
         }
     }
+    
+    private func resumeTimer() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            if remainingSeconds > 0 {
+                remainingSeconds -= 1
+                studiedSeconds += 1
+            } else {
+                timer?.invalidate()
+                finishConfirmation = true
+                StudySessionManager.addSession(studiedSeconds: studiedSeconds, context: modelContext)
+                CoinControl.rewardCoins(forSeconds: initialSeconds, context: modelContext)
+            }
+        }
+    }
+
 }

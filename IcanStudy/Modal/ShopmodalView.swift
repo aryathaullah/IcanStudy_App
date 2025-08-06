@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct ShopItem: Identifiable {
     let id = UUID()
@@ -8,6 +9,11 @@ struct ShopItem: Identifiable {
 }
 
 struct ShopmodalView: View {
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
+    
+    @Binding var isPresented: Bool
+    
     let items: [ShopItem] = [
         ShopItem(name: "Sea Lion", imageName: "f1", price: 1000),
         ShopItem(name: "Shark", imageName: "f2", price: 850),
@@ -45,7 +51,8 @@ struct ShopmodalView: View {
                 ZStack {
                     Image("coins_indicator")
                         .resizable()
-                    Text("0")
+                    Text("\(users.first?.coins ?? 0)")
+                        .font(Font.custom("Slackey-Regular", size: 15))
                         .padding(.leading, 35)
                 }
                 .frame(width: 129, height: 52)
@@ -81,14 +88,14 @@ struct ShopmodalView: View {
                         
                         
                         Button(action: {
-                            //nanti ini bkl bekerja
+                            isPresented = false
                         }) {
                             Image("red_back_button")
                                 .resizable()
                                 .frame(width: 69, height: 69)
                                 .padding()
                         }
-                        .position(x: 350, y: 225)
+                        .position(x: 300, y: 170)
                     }
                     .position(x:150, y: 125)
                     
@@ -154,10 +161,10 @@ struct ShopmodalView: View {
     }
 }
 
-struct ShopmodalView_Previews: PreviewProvider {
-    static var previews: some View {
-        ShopmodalView(onItemSelected: { item in
-            print("Confirmed purchase of: \(item.name)")
-        })
-    }
-}
+//struct ShopmodalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ShopmodalView(onItemSelected: { item in
+//            print("Confirmed purchase of: \(item.name)")
+//        })
+//    }
+//}

@@ -1,11 +1,16 @@
 import SwiftUI
+import SwiftData
 
 struct TimersView: View {
+    @Environment(\.modelContext) private var context
+    @Query private var users: [User]
+    
     @State private var showPreparationModal = false
     @State private var selectedHour = 0
     @State private var selectedMinute = 0
     @State private var selectedSecond = 0
     @State private var selectedTotalSeconds = 0
+    
     
     @Environment(\.dismiss) private var dismiss
 
@@ -19,22 +24,31 @@ struct TimersView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
             
+        
+            
             Button(action: {
-               
+                dismiss()
             }) {
                 Image("back_button")
                     .resizable()
                     .frame(width: 55, height: 55)
-                    .padding(.top, -370)
-                    .padding(.leading, -170)
             }
+            .offset(x: -150, y: -344)
+
             
             // coins indicator
-            Image("coins_indicator")
-                .resizable()
-                .frame(width: 129, height: 52)
-                .padding(.top, -370)
-                .padding(.leading, 250)
+            ZStack {
+                Image("coins_indicator")
+                    .resizable()
+                
+                Text("\(users.first?.coins ?? 0)")
+                    .font(Font.custom("Slackey-Regular", size: 15))
+                    .foregroundStyle(Color.black)
+                    .padding(.leading, 40)
+            }
+            .frame(width: 129, height: 52)
+            .padding(.top, -370)
+            .padding(.leading, 250)
             
             // timer
             VStack(spacing: 10) {
