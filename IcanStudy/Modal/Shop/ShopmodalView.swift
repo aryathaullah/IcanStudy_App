@@ -10,15 +10,19 @@ struct ShopItem: Identifiable {
 var currentFishNames = FishStorageManager.getFishNames()
 
 struct ShopmodalView: View {
+    @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
     @Query private var users: [User]
 
     @State var showmodal = false
+    @State var showSeashellAnimation = false
+    
     let items: [ShopItem] = [
-        ShopItem(name: "Sea Lion", imageName: "f1", price: 1000),
-        ShopItem(name: "Shark", imageName: "f2", price: 850),
-        ShopItem(name: "Turtle", imageName: "f3", price: 200),
-        ShopItem(name: "Dolphin", imageName: "f4", price: 200),
-        ShopItem(name: "Crab", imageName: "f5", price: 100),
+        ShopItem(name: "Sea Lion", imageName: "f1", price: 1),
+        ShopItem(name: "Shark", imageName: "f2", price: 1),
+        ShopItem(name: "Turtle", imageName: "f3", price: 1),
+        ShopItem(name: "Dolphin", imageName: "f4", price: 1),
+        ShopItem(name: "Crab", imageName: "f5", price: 1),
         ShopItem(name: "Pufferfish", imageName: "f6", price: 100),
         ShopItem(name: "Clownfish", imageName: "f7", price: 100),
         ShopItem(name: "Seahorse", imageName: "f8", price: 100),
@@ -38,8 +42,8 @@ struct ShopmodalView: View {
 
     @State private var selectedItem: ShopItem? = nil
 
-    var onItemSelected: ((ShopItem) -> Void)? = nil
-
+//    var onItemSelected: () -> Void
+    @Binding var showShopModal:Bool
     var body: some View {
         ZStack {
             Color.black.opacity(0.4)
@@ -57,6 +61,20 @@ struct ShopmodalView: View {
                 .frame(width: 129, height: 52)
                 .padding(.top, -370)
                 .padding(.leading, 250)
+                
+                if showSeashellAnimation {
+                   SeashellAnimationView(
+                       endPoint: CGPoint(x: 200, y: UIScreen.main.bounds.height - 600)
+                   ) {
+                       showSeashellAnimation = false
+                       
+                       // 2️⃣ Setelah seashell animasi selesai, delay sedikit sebelum munculkan FishEnterAnimation
+                       DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                           
+                       }
+                   }
+                }
+
 
                 RoundedRectangle(cornerRadius: 25.0)
                     .fill(Color(#colorLiteral(red: 0.792, green: 0.573, blue: 0.316, alpha: 1)))
@@ -87,10 +105,8 @@ struct ShopmodalView: View {
                         
                         
                         Button(action: {
-                            currentFishNames.removeAll()
-                            FishStorageManager.resetFishNames()
                             print("pip")
-                            //nanti ini bkl bekerja, sementra utk reset button
+                            showShopModal = false
                         }) {
                             Image("red_back_button")
                                 .resizable()
@@ -100,7 +116,6 @@ struct ShopmodalView: View {
                         .position(x: 300, y: 170)
                     }
                     .position(x:150, y: 125)
-                    
                     
 
                     ScrollView {
@@ -146,17 +161,23 @@ struct ShopmodalView: View {
                 }
                 .frame(width: 300, height: 685)
             }
-
+            
+            
             if let selectedItem = selectedItem {
                 ConfirmationModalViews(
                     item: selectedItem,
                     onConfirm: {
 //                        onItemSelected?(selectedItem)
                         print("Confirmed purchase of: \(selectedItem.name)")
-                        currentFishNames.append(selectedItem.name)
+                        currentFishNames.append(selectedItem.imageName)
                         FishStorageManager.saveFishNames(currentFishNames)
                         print(FishStorageManager.getFishNames())
+                        CoinControl.removeCoins(context: context, amount: selectedItem.price)
+                        print("berhasil dikurang \(selectedItem.price)")
                         self.selectedItem = nil
+                        showSeashellAnimation = true
+//                        onItemSelected(selectedItem)
+//                        onItemSelected()
                     },
                     onCancel: { i in
                         if i == "cancel"{
@@ -187,13 +208,14 @@ struct ShopmodalView: View {
 
 struct ShopmodalView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopmodalView(onItemSelected: { item in
-            print("Confirmed purchase m k  of: \(item.name)")
-            currentFishNames.append("\(item.name)")
-            FishStorageManager.saveFishNames(currentFishNames)
-            print(FishStorageManager.getFishNames())
-            
-        })
+//        ShopmodalView(onItemSelected: { item in
+//            print("Confirmed purchase m k  of: \(item.name)")
+//            currentFishNames.append("\(item.name)")
+//            FishStorageManager.saveFishNames(currentFishNames)
+//            print(FishStorageManager.getFishNames())
+//            
+//        })
+        ShopmodalView (showShopModal: .constant(true))
     }
 }
 

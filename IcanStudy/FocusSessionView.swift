@@ -34,7 +34,7 @@ struct FocusSessionView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
 
-            FishAnimationView()
+            FishAnimationView(refreshFish: .constant(false))
 
             VStack {
                 Text(TimeFormatterHelper.formatTime(seconds: remainingSeconds))
@@ -72,7 +72,7 @@ struct FocusSessionView: View {
 
         .onAppear {
             startTimer()
-            AudioHelper.playSound(named: "aquarium-sound-6891")
+//            AudioHelper.playSound(named: "aquarium-sound-6891")
         }
         .onDisappear {
             timer?.invalidate()

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */; };
+		0417292C2E3C4D2C00EA56F4 /* ICanStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */; };
 		041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */; };
 		0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */; };
 		0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417293B2E3C4EF100EA56F4 /* HomeView.swift */; };
@@ -32,6 +32,11 @@
 		048FDEF12E4258C200ABE5CE /* aquarium-sound-6891.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 048FDEF02E4258C200ABE5CE /* aquarium-sound-6891.mp3 */; };
 		04970DE22E431968009D3B23 /* StudyHoursControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04970DE12E431968009D3B23 /* StudyHoursControl.swift */; };
 		04970DE32E4319E4009D3B23 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726DC2E4313FE001F96F0 /* AudioHelper.swift */; };
+		049AD9DF2E43BCC500AB196B /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */; };
+		049AD9E52E443F9F00AB196B /* SeashellAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9E42E443F9300AB196B /* SeashellAnimationView.swift */; };
+		049AD9E72E446B3B00AB196B /* WelcomeView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9E62E446B3300AB196B /* WelcomeView3.swift */; };
+		049AD9E92E446BCF00AB196B /* FocusFishAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9E82E446BC800AB196B /* FocusFishAnimationView.swift */; };
+		049AD9EB2E446BDF00AB196B /* GlowButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9EA2E446BDC00AB196B /* GlowButtonView.swift */; };
 		04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C7492E3F50EC003A6E76 /* User.swift */; };
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
 		04B583272E3DE466005E1A95 /* TimersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583262E3DE466005E1A95 /* TimersView.swift */; };
@@ -41,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		041729282E3C4D2C00EA56F4 /* IcanStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IcanStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IcanStudyApp.swift; sourceTree = "<group>"; };
+		0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICanStudy.swift; sourceTree = "<group>"; };
 		0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0417293B2E3C4EF100EA56F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -67,6 +72,11 @@
 		048FDEEE2E42542B00ABE5CE /* StudyHoursControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHoursControl.swift; sourceTree = "<group>"; };
 		048FDEF02E4258C200ABE5CE /* aquarium-sound-6891.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "aquarium-sound-6891.mp3"; sourceTree = "<group>"; };
 		04970DE12E431968009D3B23 /* StudyHoursControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHoursControl.swift; sourceTree = "<group>"; };
+		049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
+		049AD9E42E443F9300AB196B /* SeashellAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeashellAnimationView.swift; sourceTree = "<group>"; };
+		049AD9E62E446B3300AB196B /* WelcomeView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView3.swift; sourceTree = "<group>"; };
+		049AD9E82E446BC800AB196B /* FocusFishAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFishAnimationView.swift; sourceTree = "<group>"; };
+		049AD9EA2E446BDC00AB196B /* GlowButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowButtonView.swift; sourceTree = "<group>"; };
 		04A6C7492E3F50EC003A6E76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishAnimationsView.swift; sourceTree = "<group>"; };
 		04B583262E3DE466005E1A95 /* TimersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersView.swift; sourceTree = "<group>"; };
@@ -113,7 +123,8 @@
 			children = (
 				047673672E3C53C400732F21 /* Info.plist */,
 				04743BB52E4232CA006BC6A4 /* Preview Content */,
-				0417292B2E3C4D2C00EA56F4 /* IcanStudyApp.swift */,
+				0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */,
+				049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */,
 				0417293B2E3C4EF100EA56F4 /* HomeView.swift */,
 				04B583262E3DE466005E1A95 /* TimersView.swift */,
 				04B5832C2E3F1312005E1A95 /* FocusSessionView.swift */,
@@ -132,6 +143,8 @@
 		043726E12E4313FE001F96F0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				049AD9EA2E446BDC00AB196B /* GlowButtonView.swift */,
+				049AD9E82E446BC800AB196B /* FocusFishAnimationView.swift */,
 				043726DC2E4313FE001F96F0 /* AudioHelper.swift */,
 				043726DD2E4313FE001F96F0 /* CoinControl.swift */,
 				043726DE2E4313FE001F96F0 /* SlidersConfirmation.swift */,
@@ -156,8 +169,9 @@
 		0476736E2E3C5CF700732F21 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				048FDEC82E41C39400ABE5CE /* WelcomeView2.swift */,
 				048FDEC62E41C32400ABE5CE /* WelcomeView.swift */,
+				048FDEC82E41C39400ABE5CE /* WelcomeView2.swift */,
+				049AD9E62E446B3300AB196B /* WelcomeView3.swift */,
 				043726E52E4313FE001F96F0 /* Shop */,
 				04B583282E3DEA63005E1A95 /* PreparationModalView.swift */,
 				04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */,
@@ -199,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */,
+				049AD9E42E443F9300AB196B /* SeashellAnimationView.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -272,6 +287,7 @@
 			files = (
 				0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */,
 				048FDEF12E4258C200ABE5CE /* aquarium-sound-6891.mp3 in Resources */,
+				049AD9DF2E43BCC500AB196B /* Launchscreen.storyboard in Resources */,
 				047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */,
 				041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */,
 			);
@@ -296,17 +312,21 @@
 				048FDEC92E41C39400ABE5CE /* WelcomeView2.swift in Sources */,
 				048FDEED2E4253C900ABE5CE /* StudySession.swift in Sources */,
 				048FDECB2E41C61800ABE5CE /* FinishModalView.swift in Sources */,
+				049AD9EB2E446BDF00AB196B /* GlowButtonView.swift in Sources */,
 				043D8B2F2E4190A000BC5F4A /* QuitModalView.swift in Sources */,
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
+				049AD9E92E446BCF00AB196B /* FocusFishAnimationView.swift in Sources */,
 				043726E62E4313FE001F96F0 /* CoinControl.swift in Sources */,
+				049AD9E72E446B3B00AB196B /* WelcomeView3.swift in Sources */,
 				043726E72E4313FE001F96F0 /* NoMoneyShop.swift in Sources */,
 				043726E82E4313FE001F96F0 /* SlidersConfirmation.swift in Sources */,
 				043726E92E4313FE001F96F0 /* ShopmodalView.swift in Sources */,
 				043726EA2E4313FE001F96F0 /* VisualEffectBlur.swift in Sources */,
 				043726EC2E4313FE001F96F0 /* ConfirmationModalViews.swift in Sources */,
+				049AD9E52E443F9F00AB196B /* SeashellAnimationView.swift in Sources */,
 				043726ED2E4313FE001F96F0 /* TimeFormatterHelper.swift in Sources */,
 				04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */,
-				0417292C2E3C4D2C00EA56F4 /* IcanStudyApp.swift in Sources */,
+				0417292C2E3C4D2C00EA56F4 /* ICanStudy.swift in Sources */,
 				04970DE22E431968009D3B23 /* StudyHoursControl.swift in Sources */,
 				048FDECD2E41E40500ABE5CE /* StreakModalView.swift in Sources */,
 				048FDEC72E41C32400ABE5CE /* WelcomeView.swift in Sources */,
@@ -446,10 +466,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IcanStudy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ICan Study";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = Launchscreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -476,10 +497,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IcanStudy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "ICan Study";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UILaunchStoryboardName = Launchscreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

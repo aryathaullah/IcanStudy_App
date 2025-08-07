@@ -23,6 +23,15 @@ struct CoinControl{
             return coinAmount
     }
     
-    
+    static func removeCoins(context: ModelContext, amount: Int) {
+            if let user = try? context.fetch(FetchDescriptor<User>()).first {
+                if user.coins >= amount {
+                    user.coins -= amount
+                } else {
+                    user.coins = 0 // Jika koin kurang dari yang akan dikurangi, set ke 0
+                }
+                try? context.save()
+            }
+        }
     
 }

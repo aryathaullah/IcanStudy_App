@@ -1,102 +1,110 @@
 import SwiftUI
 
-struct FishFood: Identifiable {
+struct Fish: Identifiable {
     let id = UUID()
     var position: CGPoint
+    var movingRight: Bool
+    var movingUp: Bool
+    let imageName: String
+    var wiggleOffset: CGFloat = 0
+    var baseY: CGFloat
 }
 
 struct FishAnimationView: View {
-    @State private var positionX: CGFloat = 100
-    @State private var positionY: CGFloat = UIScreen.main.bounds.height / 2
-    @State private var movingRight: Bool = true
-    @State private var movingUp: Bool = true
-    @State private var foods: [FishFood] = []
+    @State private var fishes: [Fish] = []
     @State private var timer: Timer?
+    @State private var wigglePhase: CGFloat = 0
+    
+    @Binding var refreshFish: Bool
 
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
 
-    let horizontalSpeed: CGFloat = 0.7
-    let verticalSpeed: CGFloat = 0.2
+    @State var fishImages = FishStorageManager.getFishNames()
+    let horizontalSpeed: CGFloat = 0.2
+    let verticalSpeed: CGFloat = 0.3
 
-    let verticalTopLimit: CGFloat = 150
-    let verticalBottomLimit: CGFloat = UIScreen.main.bounds.height - 150
+    let verticalTopLimit: CGFloat = -100
+    let verticalBottomLimit: CGFloat = UIScreen.main.bounds.height - 20
 
     var body: some View {
         ZStack {
-            // Makanan ikan
-            ForEach(foods) { food in
-                Circle()
-                    .fill(Color.brown)
-                    .frame(width: 10, height: 10)
-                    .position(food.position)
-                    .transition(.scale)
+            ForEach(fishes) { fish in
+                Image(fish.imageName)
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .scaleEffect(x: fish.movingRight ? 1 : -1, y: 1)
+                    .position(x: fish.position.x,
+                              y: fish.position.y + sin(wigglePhase + CGFloat(fish.id.hashValue % 100) / 20) * 5) // efek goyang
             }
-
-            // Ikan
-            Image("fish_shops_1")
-                .resizable()
-                .frame(width: 80, height: 80)
-                .scaleEffect(x: movingRight ? 1 : -1, y: 1)
-                .position(x: positionX, y: positionY)
         }
-        .contentShape(Rectangle())
-        .gesture(
-            DragGesture(minimumDistance: 0)
-                .onEnded { value in
-                    let location = value.location
-                    dropFishFood(at: location)
-                }
-        )
         .onAppear {
+            fishImages = FishStorageManager.getFishNames()
+            createFishes()
             startSwimming()
         }
+        .onChange(of: refreshFish, { oldValue, newValue in
+            print("REFRESH FISH")
+
+            fishImages = FishStorageManager.getFishNames()
+            createFishes()
+        })
+        
         .onDisappear {
             timer?.invalidate()
         }
     }
 
+    func createFishes() {
+        fishes = (0..<fishImages.count).map { index in
+            let x = CGFloat.random(in: 50...(screenWidth - 50))
+            let y = CGFloat.random(in: verticalTopLimit...verticalBottomLimit)
+            return Fish(
+                position: CGPoint(x: x, y: y),
+                movingRight: Bool.random(),
+                movingUp: Bool.random(),
+                imageName: fishImages[index % fishImages.count],
+                baseY: y
+            )
+        }
+    }
+
     func startSwimming() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
-            let dx = movingRight ? horizontalSpeed : -horizontalSpeed
-            var newX = positionX + dx
-            if newX >= screenWidth - 30 {
-                newX = screenWidth - 30
-                movingRight = false
-            } else if newX <= 30 {
-                newX = 30
-                movingRight = true
-            }
+            wigglePhase += 0.1
 
-            let dy = movingUp ? -verticalSpeed : verticalSpeed
-            var newY = positionY + dy
-            if newY <= verticalTopLimit {
-                newY = verticalTopLimit
-                movingUp = false
-            } else if newY >= verticalBottomLimit {
-                newY = verticalBottomLimit
-                movingUp = true
-            }
+            fishes = fishes.map { fish in
+                var newFish = fish
 
-            DispatchQueue.main.async {
-                positionX = newX
-                positionY = newY
+                // Horizontal movement
+                let dx = newFish.movingRight ? horizontalSpeed : -horizontalSpeed
+                var newX = newFish.position.x + dx
+                if newX >= screenWidth - 30 {
+                    newX = screenWidth - 30
+                    newFish.movingRight = false
+                } else if newX <= 30 {
+                    newX = 30
+                    newFish.movingRight = true
+                }
+
+                // Vertical movement
+                let dy = newFish.movingUp ? -verticalSpeed : verticalSpeed
+                var newY = newFish.position.y + dy
+                if newY <= verticalTopLimit {
+                    newY = verticalTopLimit
+                    newFish.movingUp = false
+                } else if newY >= verticalBottomLimit {
+                    newY = verticalBottomLimit
+                    newFish.movingUp = true
+                }
+
+                newFish.position = CGPoint(x: newX, y: newY)
+                return newFish
             }
         }
     }
+}
 
-    func dropFishFood(at location: CGPoint) {
-        let food = FishFood(position: location)
-        foods.append(food)
-
-        withAnimation(.linear(duration: 2.5)) {
-            if let index = foods.firstIndex(where: { $0.id == food.id }) {
-                foods[index].position.y = screenHeight + 20
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.6) {
-            foods.removeAll { $0.id == food.id }
-        }
-    }
+#Preview {
+    FishAnimationView(refreshFish: .constant(false))
 }

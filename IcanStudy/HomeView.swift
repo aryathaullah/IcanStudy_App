@@ -7,6 +7,9 @@ struct HomeView: View {
     
     @State private var showShopModal = false
     @State private var showStreakModal = false
+    @State private var showSeashellAnimation = true
+    
+    @State var refreshFishes = false
     
     @State private var todayStudyHours = 0
 
@@ -19,8 +22,6 @@ struct HomeView: View {
     
     var body: some View {
         
-        
-        
         NavigationStack{
             
             ZStack {
@@ -32,7 +33,7 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 // fish animations
-                FishAnimationView()
+                FishAnimationView(refreshFish: $refreshFishes)
                 
                 // coins indicators
                 ZStack {
@@ -47,9 +48,20 @@ struct HomeView: View {
                 .frame(width: 129, height: 52)
                 .padding(.top, -370)
                 .padding(.leading, 250)
-
-
                 
+                Button(action: {
+                    currentFishNames.removeAll()
+                    FishStorageManager.resetFishNames()
+                    print(FishStorageManager.getFishNames())
+                    //nanti ini bkl bekerja, sementra utk reset button
+                }) {
+                    Image("red_back_button")
+                        .resizable()
+                        .frame(width: 69, height: 69)
+                        .padding()
+                }
+                .position(x: 300, y: 170)
+    
                 // home components
                 VStack {
                     
@@ -117,15 +129,15 @@ struct HomeView: View {
                 }
                 
                 if showShopModal {
-                    ShopmodalView(onItemSelected: { item in
-//                        print("Confirmed purchase m k  of: \(item.name)")
-//                        currentFishNames.append("\(item.name)")
-//                        FishStorageManager.saveFishNames(currentFishNames)
-//                        print(FishStorageManager.getFishNames())
-                        
-                    })
+                    ShopmodalView(showShopModal: $showShopModal)
+
                 }
                 
+            }
+            .navigationBarBackButtonHidden(true)
+            .onChange(of: showShopModal) { oldValue, newValue in
+                print("SHOW SHOP MODAL")
+                refreshFishes.toggle()
             }
         }
 
