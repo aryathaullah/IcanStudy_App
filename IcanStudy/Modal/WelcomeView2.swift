@@ -2,11 +2,11 @@ import SwiftUI
 
 struct WelcomeView2: View {
     
+    @AppStorage("hasLaunchedBefore") private var hasLaunchedBefore: Bool = false
+    @State private var goToNext1 = false
     @State var isAnimating = false
 
     var body: some View {
-        
-        
      
         NavigationStack{
             
@@ -70,8 +70,15 @@ struct WelcomeView2: View {
                     .offset(x:0,y:230)
                     .scaleEffect(1.3)
                 
-                
-            }.onAppear {
+                NavigationLink(destination: WelcomePageView(),  isActive: $goToNext1) {
+                                   EmptyView()
+                               }
+            }.navigationBarBackButtonHidden(true)
+            .contentShape(Rectangle()) // Full screen tap area
+                        .onTapGesture {
+                            goToNext1 = true
+                        }
+            .onAppear {
                 isAnimating = true
             }
         }

@@ -26,7 +26,7 @@ struct BreakSessionView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
 
-            FishAnimationView()
+            FishAnimationView(refreshFish: .constant(false))
 
             VStack {
                 Text(formattedTime)

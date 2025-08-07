@@ -3,14 +3,13 @@ import SwiftData
 
 struct ConfirmationModalViews: View {
     @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
+
     @Query private var users: [User]
     
     let item: ShopItem
     let onConfirm: () -> Void
     let onCancel: (_ message:String) -> Void
-    
-
-   
     
     var body: some View {
         
@@ -55,26 +54,21 @@ struct ConfirmationModalViews: View {
                     .cornerRadius(10)
 
                     Button("Buy") {
-//                        print("Buy")
-//                        guard let coin = users.first?.coins else{
-//                            return
-//                        }
-//                        print("Get cooin")
-                        if 1 + 1 == 2{
-//                        print("\()")
-                            
-                            onConfirm()
-                            print("duit cukup, up ikan ")
-                            FishStorageManager.saveFishNames(currentFishNames)
-
-                           
+                            if let coin = users.first?.coins {
+                                print("User has \(coin) coins")
+                                if coin >= item.price {
+                                    onConfirm()
+                                } else {
+                                    // Not enough coins
+                                    onCancel("no money")
+                                    print("Insufficient coins")
+                                }
+                            }
                         }
-                        else{
-                            onCancel("no money")
-//                            showModal = true
-//                            print("duit kurang")
-                        }
-                    }
+                        .frame(width: 100, height: 40)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                     .padding()
                     .frame(width: 100,height: 40)
                     .background(Color.blue)
