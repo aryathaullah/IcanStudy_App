@@ -44,7 +44,8 @@ struct HomeView: View {
                     
                     Text("\(users.first?.coins ?? 0)")
                         .font(Font.custom("Slackey-Regular", size: 15))
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(.coin)
+                        .opacity(0.7)
                         .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     
                         .padding(.leading, 40)

@@ -18,24 +18,24 @@ struct ShopmodalView: View {
     @State var showSeashellAnimation = false
     
     let items: [ShopItem] = [
-        ShopItem(name: "Cute Nemo", imageName: "f1", price: 7),
-        ShopItem(name: "Brave Turtle", imageName: "f2", price: 15),
-        ShopItem(name: "Humble Shark", imageName: "f3", price: 9),
-        ShopItem(name: "Shy Dori", imageName: "f4", price: 13),
-        ShopItem(name: "Mrs. Pufferfish", imageName: "f5", price: 15),
-        ShopItem(name: "Cartoon Fish", imageName: "f6", price: 8),
-        ShopItem(name: "Lazy Seal", imageName: "f7", price: 30),
-        ShopItem(name: "Pinky Fishy", imageName: "f8", price: 14),
-        ShopItem(name: "Shiny Swordfish", imageName: "f9", price: 35),
-        ShopItem(name: "Dr. Octopus", imageName: "f10", price: 50),
-        ShopItem(name: "Mr. Crab", imageName: "f11", price: 45),
-        ShopItem(name: "Patrickk", imageName: "f12", price: 12),
-        ShopItem(name: "Octopuster", imageName: "f13", price: 10),
-        ShopItem(name: "Healer Whale", imageName: "f14", price: 16),
-        ShopItem(name: "Female Seahorse", imageName: "f15", price: 25),
-        ShopItem(name: "Angler Fish", imageName: "f16", price: 42),
-        ShopItem(name: "Puffy Brother", imageName: "f17", price: 27),
-        ShopItem(name: "Male Seahorse", imageName: "f18", price: 17)
+        ShopItem(name: "Cute Nemo", imageName: "f1", price: 20),
+        ShopItem(name: "Brave Turtle", imageName: "f2", price: 28),
+        ShopItem(name: "Humble Shark", imageName: "f3", price: 22),
+        ShopItem(name: "Shy Dori", imageName: "f4", price: 26),
+        ShopItem(name: "Mrs. Pufferfish", imageName: "f5", price: 28),
+        ShopItem(name: "Cartoon Fish", imageName: "f6", price: 21),
+        ShopItem(name: "Lazy Seal", imageName: "f7", price: 43),
+        ShopItem(name: "Pinky Fishy", imageName: "f8", price: 27),
+        ShopItem(name: "Shiny Swordfish", imageName: "f9", price: 48),
+        ShopItem(name: "Dr. Octopus", imageName: "f10", price: 63),
+        ShopItem(name: "Mr. Crab", imageName: "f11", price: 55),
+        ShopItem(name: "Patrickk", imageName: "f12", price: 25),
+        ShopItem(name: "Octopuster", imageName: "f13", price: 23),
+        ShopItem(name: "Healer Whale", imageName: "f14", price: 29),
+        ShopItem(name: "Female Seahorse", imageName: "f15", price: 38),
+        ShopItem(name: "Angler Fish", imageName: "f16", price: 55),
+        ShopItem(name: "Puffy Brother", imageName: "f17", price: 34),
+        ShopItem(name: "Male Seahorse", imageName: "f18", price: 30)
     ]
 
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
@@ -56,7 +56,9 @@ struct ShopmodalView: View {
                         .resizable()
                     Text("\(users.first?.coins ?? 0)")
                         .font(Font.custom("Slackey-Regular", size: 15))
-                        .padding(.leading, 35)
+                        .padding(.leading, 40)
+                        .foregroundStyle(.coin)
+                        .opacity(0.7)
                 }
                 .frame(width: 129, height: 52)
                 .padding(.top, -370)

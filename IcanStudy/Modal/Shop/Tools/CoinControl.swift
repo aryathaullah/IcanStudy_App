@@ -19,7 +19,7 @@ struct CoinControl{
     }
     
     static func calcCoins(forSeconds userTotalSeconds: Int) -> Int {
-            let coinAmount = userTotalSeconds / 300
+            let coinAmount = userTotalSeconds  / 300
             return coinAmount
     }
     

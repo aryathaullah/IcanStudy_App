@@ -107,6 +107,7 @@ struct BreakConfirmation: View {
                         }
                 }) {
                     ZStack {
+                       
                         Image("break_button")
                             .resizable()
                             .frame(width: 160, height: 50)

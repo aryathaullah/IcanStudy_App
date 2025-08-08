@@ -125,7 +125,7 @@ struct QuitModalView: View {
 
                     SlideToConfirmButton {
                         stopAutoContinueCountdown()
-                        onQuit() // 🔴 Hentikan musik dari luar
+//                        onQuit() // 🔴 Hentikan musik dari luar
                         dismiss()
                         StudySessionManager.addSession(studiedSeconds: studiedSeconds, context: modelContext)
                         CoinControl.rewardCoins(forSeconds: studiedSeconds, context: modelContext)
@@ -164,3 +164,4 @@ struct QuitModalView: View {
         autoContinueTimer = nil
     }
 }
+

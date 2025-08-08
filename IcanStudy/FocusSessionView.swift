@@ -12,6 +12,7 @@ struct FocusSessionView: View {
     @State private var timer: Timer?
     @State private var studiedSeconds: Int = 0
     @State private var breakLimit = 0
+    @State private var musikOn = true
 
     @State private var showQuitModal = false
     @State private var breakConfirmation = false
@@ -31,39 +32,62 @@ struct FocusSessionView: View {
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-
+            
             FishAnimationView(refreshFish: .constant(false))
-
-            VStack {
-                Text(TimeFormatterHelper.formatTime(seconds: remainingSeconds))
-                    .font(Font.custom("Slackey-Regular", size: 53))
-                    .foregroundStyle(Color.white)
-                    .fontWeight(.bold)
-
+            
+            VStack{
+                
+                Button(action: {
+                    stopBackgroundMusic()
+                    print("hii")
+                }) {
+                    Image("speaker on")
+                        .frame(width: 20, height: 20)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                        .offset(x:150, y:70)
+                }
+                
+                
+              
+                
                 Spacer()
-                    .frame(height: 70)
-
-                Button(action: {
-                    timer?.invalidate()
-                    showQuitModal = true
-                }) {
-                    Image("button_quit")
-                        .resizable()
-                        .frame(width: 180, height: 52)
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                
+                
+                VStack {
+                    
+                    Text(TimeFormatterHelper.formatTime(seconds: remainingSeconds))
+                        .font(Font.custom("Slackey-Regular", size: 53))
+                        .foregroundStyle(Color.white)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                        .frame(height: 70)
+                    
+                    Button(action: {
+                        timer?.invalidate()
+                        showQuitModal = true
+                    }) {
+                        Image("button_quit")
+                            .resizable()
+                            .frame(width: 180, height: 52)
+                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Button(action: {
+                        timer?.invalidate()
+                        breakConfirmation = true
+                    }) {
+                        Image("button_break")
+                            .resizable()
+                            .frame(width: 218, height: 52)
+                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
-
-                Button(action: {
-                    timer?.invalidate()
-                    breakConfirmation = true
-                }) {
-                    Image("button_break")
-                        .resizable()
-                        .frame(width: 218, height: 52)
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                }
-                .buttonStyle(PlainButtonStyle())
+                Spacer()
+                
+                
             }
         }
         .onAppear {
@@ -83,7 +107,6 @@ struct FocusSessionView: View {
                 remainingSeconds: remainingSeconds,
                 studiedSeconds: studiedSeconds,
                 onContinue: {
-                    stopBackgroundMusic() // ini untuk continue
                     resumeTimer()
                 },
                 onQuit: {
@@ -170,4 +193,8 @@ struct FocusSessionView: View {
         audioPlayer?.stop()
         audioPlayer = nil
     }
+}
+
+#Preview{
+    FocusSessionView(isPresented: .constant(true), totalSeconds: 10)
 }
