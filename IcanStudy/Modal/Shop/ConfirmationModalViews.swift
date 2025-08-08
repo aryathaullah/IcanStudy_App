@@ -65,6 +65,11 @@ struct ConfirmationModalViews: View {
                                     print("Insufficient coins")
                                 }
                             }
+                        else {
+                            // Not enough coins
+                            onCancel("no money")
+                            print("Insufficient coins")
+                        }
                         }
                         .frame(width: 100, height: 40)
                         .background(Color.blue)

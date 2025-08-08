@@ -54,18 +54,18 @@ struct HomeView: View {
                 .padding(.top, -370)
                 .padding(.leading, 250)
                 
-                Button(action: {
-                    currentFishNames.removeAll()
-                    FishStorageManager.resetFishNames()
-                    print(FishStorageManager.getFishNames())
-                    //nanti ini bkl bekerja, sementra utk reset button
-                }) {
-                    Image("red_back_button")
-                        .resizable()
-                        .frame(width: 69, height: 69)
-                        .padding()
-                }
-                .position(x: 300, y: 170)
+//                Button(action: {
+//                    currentFishNames.removeAll()
+//                    FishStorageManager.resetFishNames()
+//                    print(FishStorageManager.getFishNames())
+//                    //nanti ini bkl bekerja, sementra utk reset button
+//                }) {
+//                    Image("red_back_button")
+//                        .resizable()
+//                        .frame(width: 69, height: 69)
+//                        .padding()
+//                }
+//                .position(x: 300, y: 170)
     
                 // home components
                 VStack {

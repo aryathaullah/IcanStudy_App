@@ -30,8 +30,7 @@ struct StreakModalView: View {
                         .fontWeight(.bold)
                         .foregroundStyle(Color.white)
                         .shadow(radius: 5, x: 5)
-                    Image("exit_button")
-                        .offset(x:150, y:10)
+                    
                 }
                 .offset(y: -170)
                 
@@ -44,7 +43,7 @@ struct StreakModalView: View {
                         .padding()
                 }
                 .position(x: 350, y: 260)
-
+                
                 VStack {
                     Text("YOUR STREAK HOURS")
                         .font(Font.custom("Slackey-Regular", size: 15))
@@ -85,8 +84,6 @@ struct StreakModalView: View {
                 }
                 .offset(y: 30)
                 
-                Image("Starfish")
-                    .offset(x:-80,y:140)
             }
         }
         .transition(.opacity)
