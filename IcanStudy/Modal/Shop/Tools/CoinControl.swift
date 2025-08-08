@@ -12,14 +12,14 @@ struct CoinControl{
     }
     
     static func rewardCoins(forSeconds userTotalSeconds: Int, context: ModelContext) {
-            let coinAmount = userTotalSeconds / 2
+            let coinAmount = userTotalSeconds / 300
             if coinAmount > 0 {
                 addCoins(context: context, amount: coinAmount)
             }
     }
     
     static func calcCoins(forSeconds userTotalSeconds: Int) -> Int {
-            let coinAmount = userTotalSeconds / 2
+            let coinAmount = userTotalSeconds / 300
             return coinAmount
     }
     
