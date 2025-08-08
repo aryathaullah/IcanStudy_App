@@ -40,10 +40,14 @@ struct TimersView: View {
             ZStack {
                 Image("coins_indicator")
                     .resizable()
+                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                
                 
                 Text("\(users.first?.coins ?? 0)")
                     .font(Font.custom("Slackey-Regular", size: 15))
                     .foregroundStyle(Color.black)
+                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                
                     .padding(.leading, 40)
             }
             .frame(width: 129, height: 52)
@@ -55,9 +59,11 @@ struct TimersView: View {
                 
                 // timer title
                 Text("Today's Study Time")
-                    .font(Font.custom("Slackey-Regular", size: 24))
+                    .font(Font.custom("Slackey-Regular", size: 25))
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
+                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                
 
                 // timer picker
                 HStack(spacing: 5) {
@@ -115,16 +121,7 @@ struct TimersView: View {
                     selectedTotalSeconds = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
                     showPreparationModal = true
                 }) {
-                    ZStack {
-                        Image("button_confirmation")
-                            .resizable()
-                            .frame(width: 180, height: 52)
-                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                        Text("START")
-                            .font(Font.custom("Slackey-Regular", size: 33))
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                    }
+                    GlowButtonView2()
                 }
                 .buttonStyle(PlainButtonStyle())
             }

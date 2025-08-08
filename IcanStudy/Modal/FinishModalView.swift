@@ -1,10 +1,5 @@
-//
-//  BreakConfirmation 2.swift
-//  IcanStudy
-//
-//  Created by Mac on 05/08/25.
-//
 import SwiftUI
+import AVFoundation
 
 struct FinishModalView: View {
     @Environment(\.dismiss) var dismiss
@@ -13,7 +8,9 @@ struct FinishModalView: View {
     var RemainingSeconds: Int
 
     @State private var continueConfirmation = false
-    
+    @State private var hasPlayedSound = false
+    @State private var audioPlayer: AVAudioPlayer?
+
     var formattedTime: String {
         let hours = totalSeconds / 3600
         let minutes = (totalSeconds % 3600) / 60
@@ -95,10 +92,9 @@ struct FinishModalView: View {
                 .offset(y: 0)
             }
             
-
             VStack {
-    
                 Button(action: {
+                    audioPlayer?.stop() // Matikan suara
                     dismiss()
                 }) {
                     ZStack {
@@ -117,8 +113,27 @@ struct FinishModalView: View {
             }
             .offset(y: 100)
         }
+        .onAppear {
+            if !hasPlayedSound {
+                playSoundOnce()
+                hasPlayedSound = true
+            }
+        }
         .transition(.opacity)
         .animation(.easeInOut, value: isPresented)
+    }
+
+    private func playSoundOnce() {
+        if let soundURL = Bundle.main.url(forResource: "finish_sound", withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.play()
+            } catch {
+                print("Gagal memutar suara:", error.localizedDescription)
+            }
+        } else {
+            print("File finish_sound.mp3 tidak ditemukan di bundle.")
+        }
     }
 }
 

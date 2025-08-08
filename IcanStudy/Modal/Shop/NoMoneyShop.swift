@@ -24,10 +24,11 @@ struct NoMoneyShop: View {
                 .shadow(color: .black.opacity(0.5), radius: 5)
             
             VStack(spacing: 20) {
-                Text("Oops! Sorry, You don’t have enough coins to buy this item.")
-                    .font(.title2)
+                Text("Oops! Sorry, You don’t\n have enough coins to \n buy this item.")
+                    .multilineTextAlignment(.center)
                     .bold()
                     .frame(width: 250)
+                    .font(Font.custom("Slackey-Regular", size: 17, ))
                     
             }
             

@@ -42,6 +42,7 @@ struct ConfirmationModalViews: View {
                 Text("Buy \(item.name) for \(item.price) coins?")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
+                    .frame(width:300)
 
                 HStack(spacing: 20) {
                     Button("Cancel") {

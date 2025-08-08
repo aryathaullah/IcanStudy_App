@@ -39,10 +39,14 @@ struct HomeView: View {
                 ZStack {
                     Image("coins_indicator")
                         .resizable()
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    
                     
                     Text("\(users.first?.coins ?? 0)")
                         .font(Font.custom("Slackey-Regular", size: 15))
                         .foregroundStyle(Color.black)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    
                         .padding(.leading, 40)
                 }
                 .frame(width: 129, height: 52)
@@ -67,28 +71,24 @@ struct HomeView: View {
                     
                     // home title
                     Text("Today's Study Time")
-                        .font(Font.custom("Slackey-Regular", size: 24))
+                        .font(Font.custom("Slackey-Regular", size: 25))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    
                     
                     // user's study hours
                     Text(StudySessionManager.getTotalTimeToday(context: context))
-                        .font(Font.custom("Slackey-Regular", size: 53))
+                        .font(Font.custom("Slackey-Regular", size: 50))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     
                     
                     
                     NavigationLink(destination: TimersView()) {
                         ZStack {
-                            Image("button_confirmation")
-                                .resizable()
-                                .frame(width: 180, height: 52)
-                                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                            Text("FOCUS")
-                                .font(Font.custom("Slackey-Regular", size: 33))
-                                .foregroundColor(.white)
-                                .fontWeight(.bold)
+                            GlowButtonView()
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -119,6 +119,7 @@ struct HomeView: View {
                             .resizable()
                             .frame(width: 102.49, height: 88.91)
                             .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                            .offset(x:20)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }

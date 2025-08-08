@@ -30,6 +30,9 @@
 		048FDEEB2E42475100ABE5CE /* BreakSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FDEEA2E42475100ABE5CE /* BreakSessionView.swift */; };
 		048FDEED2E4253C900ABE5CE /* StudySession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048FDEEC2E4253C900ABE5CE /* StudySession.swift */; };
 		048FDEF12E4258C200ABE5CE /* aquarium-sound-6891.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 048FDEF02E4258C200ABE5CE /* aquarium-sound-6891.mp3 */; };
+		0496DA0F2E45982400B7FC60 /* underwatersounds.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0496DA0E2E45982400B7FC60 /* underwatersounds.mp3 */; };
+		0496DA122E45AEFA00B7FC60 /* GlowButtonView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496DA112E45AEEE00B7FC60 /* GlowButtonView2.swift */; };
+		0496DA142E45B4FC00B7FC60 /* finish_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0496DA132E45B4FC00B7FC60 /* finish_sound.mp3 */; };
 		04970DE22E431968009D3B23 /* StudyHoursControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04970DE12E431968009D3B23 /* StudyHoursControl.swift */; };
 		04970DE32E4319E4009D3B23 /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043726DC2E4313FE001F96F0 /* AudioHelper.swift */; };
 		049AD9DF2E43BCC500AB196B /* Launchscreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */; };
@@ -71,6 +74,9 @@
 		048FDEEC2E4253C900ABE5CE /* StudySession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySession.swift; sourceTree = "<group>"; };
 		048FDEEE2E42542B00ABE5CE /* StudyHoursControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHoursControl.swift; sourceTree = "<group>"; };
 		048FDEF02E4258C200ABE5CE /* aquarium-sound-6891.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "aquarium-sound-6891.mp3"; sourceTree = "<group>"; };
+		0496DA0E2E45982400B7FC60 /* underwatersounds.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = underwatersounds.mp3; sourceTree = "<group>"; };
+		0496DA112E45AEEE00B7FC60 /* GlowButtonView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowButtonView2.swift; sourceTree = "<group>"; };
+		0496DA132E45B4FC00B7FC60 /* finish_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = finish_sound.mp3; sourceTree = "<group>"; };
 		04970DE12E431968009D3B23 /* StudyHoursControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHoursControl.swift; sourceTree = "<group>"; };
 		049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launchscreen.storyboard; sourceTree = "<group>"; };
 		049AD9E42E443F9300AB196B /* SeashellAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeashellAnimationView.swift; sourceTree = "<group>"; };
@@ -87,7 +93,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		04743BB52E4232CA006BC6A4 /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
+		041652CF2E448E5700CD83B1 /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +127,8 @@
 		0417292A2E3C4D2C00EA56F4 /* IcanStudy */ = {
 			isa = PBXGroup;
 			children = (
+				041652CF2E448E5700CD83B1 /* Preview Content */,
 				047673672E3C53C400732F21 /* Info.plist */,
-				04743BB52E4232CA006BC6A4 /* Preview Content */,
 				0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */,
 				049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */,
 				0417293B2E3C4EF100EA56F4 /* HomeView.swift */,
@@ -144,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				049AD9EA2E446BDC00AB196B /* GlowButtonView.swift */,
+				0496DA112E45AEEE00B7FC60 /* GlowButtonView2.swift */,
 				049AD9E82E446BC800AB196B /* FocusFishAnimationView.swift */,
 				043726DC2E4313FE001F96F0 /* AudioHelper.swift */,
 				043726DD2E4313FE001F96F0 /* CoinControl.swift */,
@@ -223,6 +230,8 @@
 			children = (
 				048FDEF02E4258C200ABE5CE /* aquarium-sound-6891.mp3 */,
 				04B583312E3F2932005E1A95 /* start_sound.mp3 */,
+				0496DA0E2E45982400B7FC60 /* underwatersounds.mp3 */,
+				0496DA132E45B4FC00B7FC60 /* finish_sound.mp3 */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -241,6 +250,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				041652CF2E448E5700CD83B1 /* Preview Content */,
 			);
 			name = IcanStudy;
 			productName = IcanStudy;
@@ -285,11 +297,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0496DA142E45B4FC00B7FC60 /* finish_sound.mp3 in Resources */,
 				0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */,
 				048FDEF12E4258C200ABE5CE /* aquarium-sound-6891.mp3 in Resources */,
 				049AD9DF2E43BCC500AB196B /* Launchscreen.storyboard in Resources */,
 				047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */,
 				041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */,
+				0496DA0F2E45982400B7FC60 /* underwatersounds.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +331,7 @@
 				0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */,
 				049AD9E92E446BCF00AB196B /* FocusFishAnimationView.swift in Sources */,
 				043726E62E4313FE001F96F0 /* CoinControl.swift in Sources */,
+				0496DA122E45AEFA00B7FC60 /* GlowButtonView2.swift in Sources */,
 				049AD9E72E446B3B00AB196B /* WelcomeView3.swift in Sources */,
 				043726E72E4313FE001F96F0 /* NoMoneyShop.swift in Sources */,
 				043726E82E4313FE001F96F0 /* SlidersConfirmation.swift in Sources */,

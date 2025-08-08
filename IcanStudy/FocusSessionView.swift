@@ -13,13 +13,12 @@ struct FocusSessionView: View {
     @State private var studiedSeconds: Int = 0
     @State private var breakLimit = 0
 
-    
     @State private var showQuitModal = false
     @State private var breakConfirmation = false
     @State private var finishConfirmation = false
-    
+
     @State private var audioPlayer: AVAudioPlayer?
-    
+
     init(isPresented: Binding<Bool>, totalSeconds: Int) {
         self._isPresented = isPresented
         self.initialSeconds = totalSeconds
@@ -28,7 +27,6 @@ struct FocusSessionView: View {
 
     var body: some View {
         ZStack {
-            
             Image("background_app")
                 .resizable()
                 .scaledToFill()
@@ -59,7 +57,6 @@ struct FocusSessionView: View {
                 Button(action: {
                     timer?.invalidate()
                     breakConfirmation = true
-                    
                 }) {
                     Image("button_break")
                         .resizable()
@@ -69,32 +66,56 @@ struct FocusSessionView: View {
                 .buttonStyle(PlainButtonStyle())
             }
         }
-
         .onAppear {
+            stopBackgroundMusic() // Jaga-jaga kalau sebelumnya belum berhenti
+            playBackgroundMusic()
             startTimer()
-//            AudioHelper.playSound(named: "aquarium-sound-6891")
         }
         .onDisappear {
             timer?.invalidate()
+            stopBackgroundMusic()
         }
-        
+
         if showQuitModal {
-            QuitModalView(isPresented: $showQuitModal, totalSeconds: initialSeconds, remainingSeconds: remainingSeconds, studiedSeconds: studiedSeconds, onContinue: {
-                resumeTimer()
-            })
+            QuitModalView(
+                isPresented: $showQuitModal,
+                totalSeconds: initialSeconds,
+                remainingSeconds: remainingSeconds,
+                studiedSeconds: studiedSeconds,
+                onContinue: {
+                    stopBackgroundMusic() // ini untuk continue
+                    resumeTimer()
+                },
+                onQuit: {
+                    stopBackgroundMusic() // ini untuk quit
+                }
+            )
         }
-        
+
+
         if breakConfirmation {
-                BreakConfirmation(isPresented: $breakConfirmation, totalSeconds: initialSeconds, RemainingSeconds: remainingSeconds, studiedSeconds: studiedSeconds, breakLimit: $breakLimit, onContinue: {
-                    resumeTimer()  // timer dilanjutkan saat user klik "Continue"
-                })
+            BreakConfirmation(
+                isPresented: $breakConfirmation,
+                totalSeconds: initialSeconds,
+                RemainingSeconds: remainingSeconds,
+                studiedSeconds: studiedSeconds,
+                breakLimit: $breakLimit,
+                onContinue: {
+                    resumeTimer()
+                }
+            )
         }
-        
+
         if finishConfirmation {
-                FinishModalView(isPresented: $finishConfirmation, totalSeconds: initialSeconds, RemainingSeconds: remainingSeconds)
+            FinishModalView(
+                isPresented: $finishConfirmation,
+                totalSeconds: initialSeconds,
+                RemainingSeconds: remainingSeconds
+            )
         }
-        
     }
+
+    // MARK: - Timer Logic
 
     private func startTimer() {
         timer?.invalidate()
@@ -104,13 +125,14 @@ struct FocusSessionView: View {
                 studiedSeconds += 1
             } else {
                 timer?.invalidate()
+                stopBackgroundMusic()
                 finishConfirmation = true
                 StudySessionManager.addSession(studiedSeconds: studiedSeconds, context: modelContext)
                 CoinControl.rewardCoins(forSeconds: initialSeconds, context: modelContext)
             }
         }
     }
-    
+
     private func resumeTimer() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
@@ -119,6 +141,7 @@ struct FocusSessionView: View {
                 studiedSeconds += 1
             } else {
                 timer?.invalidate()
+                stopBackgroundMusic()
                 finishConfirmation = true
                 StudySessionManager.addSession(studiedSeconds: studiedSeconds, context: modelContext)
                 CoinControl.rewardCoins(forSeconds: initialSeconds, context: modelContext)
@@ -126,4 +149,25 @@ struct FocusSessionView: View {
         }
     }
 
+    // MARK: - Audio Logic
+
+    private func playBackgroundMusic() {
+        guard let url = Bundle.main.url(forResource: "underwatersounds", withExtension: "mp3") else {
+            print("🎵 Audio file not found.")
+            return
+        }
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.numberOfLoops = -1 // infinite loop
+            audioPlayer?.play()
+        } catch {
+            print("❌ Failed to play audio: \(error.localizedDescription)")
+        }
+    }
+
+    private func stopBackgroundMusic() {
+        audioPlayer?.stop()
+        audioPlayer = nil
+    }
 }

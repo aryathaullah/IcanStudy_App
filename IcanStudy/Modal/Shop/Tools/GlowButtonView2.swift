@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct GlowButtonView: View {
+struct GlowButtonView2: View {
     @State private var glow = false
 
     var body: some View {
     
             
-            Text("FOCUS")
+            Text("START")
                 .font(Font.custom("Slackey-Regular", size: 33))
                 .foregroundColor(.white)
                 .fontWeight(.bold)
@@ -29,5 +29,5 @@ struct GlowButtonView: View {
 }
 
 #Preview {
-    GlowButtonView()
+    GlowButtonView2()
 }

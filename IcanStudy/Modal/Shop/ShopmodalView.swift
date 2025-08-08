@@ -18,24 +18,24 @@ struct ShopmodalView: View {
     @State var showSeashellAnimation = false
     
     let items: [ShopItem] = [
-        ShopItem(name: "Sea Lion", imageName: "f1", price: 1),
-        ShopItem(name: "Shark", imageName: "f2", price: 1),
-        ShopItem(name: "Turtle", imageName: "f3", price: 1),
-        ShopItem(name: "Dolphin", imageName: "f4", price: 1),
-        ShopItem(name: "Crab", imageName: "f5", price: 1),
-        ShopItem(name: "Pufferfish", imageName: "f6", price: 100),
-        ShopItem(name: "Clownfish", imageName: "f7", price: 100),
-        ShopItem(name: "Seahorse", imageName: "f8", price: 100),
-        ShopItem(name: "Octopus", imageName: "f9", price: 100),
-        ShopItem(name: "Hammerhead", imageName: "f10", price: 100),
-        ShopItem(name: "Tropical Fish", imageName: "f11", price: 100),
-        ShopItem(name: "Striped Fisha", imageName: "f12", price: 100),
-        ShopItem(name: "Clownfisha", imageName: "f13", price: 100),
-        ShopItem(name: "Seahorsae", imageName: "f14", price: 100),
-        ShopItem(name: "Octopuas", imageName: "f15", price: 100),
-        ShopItem(name: "Hammerhaead", imageName: "f16", price: 100),
-        ShopItem(name: "Tropicaal Fish", imageName: "f17", price: 100),
-        ShopItem(name: "Stripead Fish", imageName: "f18", price: 100)
+        ShopItem(name: "Cute Nemo", imageName: "f1", price: 7),
+        ShopItem(name: "Brave Turtle", imageName: "f2", price: 15),
+        ShopItem(name: "Humble Shark", imageName: "f3", price: 9),
+        ShopItem(name: "Shy Dori", imageName: "f4", price: 13),
+        ShopItem(name: "Mrs. Pufferfish", imageName: "f5", price: 15),
+        ShopItem(name: "Cartoon Fish", imageName: "f6", price: 8),
+        ShopItem(name: "Lazy Seal", imageName: "f7", price: 30),
+        ShopItem(name: "Pinky Fishy", imageName: "f8", price: 14),
+        ShopItem(name: "Shiny Swordfish", imageName: "f9", price: 35),
+        ShopItem(name: "Dr. Octopus", imageName: "f10", price: 50),
+        ShopItem(name: "Mr. Crab", imageName: "f11", price: 45),
+        ShopItem(name: "Patrickk", imageName: "f12", price: 12),
+        ShopItem(name: "Octopuster", imageName: "f13", price: 10),
+        ShopItem(name: "Healer Whale", imageName: "f14", price: 16),
+        ShopItem(name: "Female Seahorse", imageName: "f15", price: 25),
+        ShopItem(name: "Angler Fish", imageName: "f16", price: 42),
+        ShopItem(name: "Puffy Brother", imageName: "f17", price: 27),
+        ShopItem(name: "Male Seahorse", imageName: "f18", price: 17)
     ]
 
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
@@ -94,6 +94,7 @@ struct ShopmodalView: View {
                             RoundedRectangle(cornerRadius: 15.0)
                                 .fill(Color(#colorLiteral(red: 0.94, green: 0.35, blue: 0.32, alpha: 1)))
                                 .frame(width: 160, height: 50)
+                                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                             
                             Text("SHOP")
                                 .font(Font.custom("Slackey-Regular", size: 33))
@@ -133,11 +134,13 @@ struct ShopmodalView: View {
                                         selectedItem = item
                                     }) {
                                         HStack(spacing: 4) {
-                                            Image(systemName: "circle.fill")
+                                            Image("Seashell")
                                                 .resizable()
-                                                .frame(width: 12, height: 12)
+                                                .frame(width: 20, height: 22)
+                                                .offset(y:2)
                                             Text("\(item.price)")
-                                                .font(.system(size: 12, weight: .bold))
+                                                .font(Font.custom("Slackey-Regular", size: 15))
+                                                .offset(x:-5)
                                         }
                                         .padding(5)
                                         .frame(maxWidth: .infinity)
@@ -219,6 +222,8 @@ struct ShopmodalView_Previews: PreviewProvider {
     }
 }
 
-
+#Preview{
+    ShopmodalView(showShopModal: .constant(true))
+}
 
 
