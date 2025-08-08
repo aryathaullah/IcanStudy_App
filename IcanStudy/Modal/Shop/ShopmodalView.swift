@@ -159,7 +159,7 @@ struct ShopmodalView: View {
                         }
                         .padding()
                     }
-                    .scrollIndica.tors(.visible)
+                    .scrollIndicators(.visible)
                     .position(x:150, y: 10)
 
                     
