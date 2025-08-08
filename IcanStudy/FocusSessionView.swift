@@ -17,7 +17,11 @@ struct FocusSessionView: View {
     @State private var showQuitModal = false
     @State private var breakConfirmation = false
     @State private var finishConfirmation = false
-
+    
+    @State private var MusicOff = false
+    @State private var MusicPng = "music_on"
+   
+    
     @State private var audioPlayer: AVAudioPlayer?
 
     init(isPresented: Binding<Bool>, totalSeconds: Int) {
@@ -27,6 +31,8 @@ struct FocusSessionView: View {
     }
 
     var body: some View {
+        
+        
         ZStack {
             Image("background_app")
                 .resizable()
@@ -38,17 +44,15 @@ struct FocusSessionView: View {
             VStack{
                 
                 Button(action: {
-                    stopBackgroundMusic()
+                    MusicOff.toggle()
                     print("hii")
                 }) {
-                    Image("speaker on")
+                    Image(MusicOff ? "music_off" : "music_on")
                         .frame(width: 20, height: 20)
                         .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                        .offset(x:150, y:70)
                 }
-                
-                
-              
+                .offset(x:150, y:70)
+            
                 
                 Spacer()
                 
@@ -89,6 +93,46 @@ struct FocusSessionView: View {
                 
                 
             }
+            
+            
+            
+            if showQuitModal {
+                QuitModalView(
+                    isPresented: $showQuitModal,
+                    totalSeconds: initialSeconds,
+                    remainingSeconds: remainingSeconds,
+                    studiedSeconds: studiedSeconds,
+                    onContinue: {
+                        resumeTimer()
+                    },
+                    onQuit: {
+                        stopBackgroundMusic() // ini untuk quit
+                    }
+                )
+            }
+
+
+            if breakConfirmation {
+                BreakConfirmation(
+                    isPresented: $breakConfirmation,
+                    totalSeconds: initialSeconds,
+                    RemainingSeconds: remainingSeconds,
+                    studiedSeconds: studiedSeconds,
+                    breakLimit: $breakLimit,
+                    onContinue: {
+                        resumeTimer()
+                    }
+                )
+            }
+
+            if finishConfirmation {
+                FinishModalView(
+                    isPresented: $finishConfirmation,
+                    totalSeconds: initialSeconds,
+                    RemainingSeconds: remainingSeconds
+                )
+            }
+            
         }
         .onAppear {
             stopBackgroundMusic() // Jaga-jaga kalau sebelumnya belum berhenti
@@ -99,43 +143,21 @@ struct FocusSessionView: View {
             timer?.invalidate()
             stopBackgroundMusic()
         }
-
-        if showQuitModal {
-            QuitModalView(
-                isPresented: $showQuitModal,
-                totalSeconds: initialSeconds,
-                remainingSeconds: remainingSeconds,
-                studiedSeconds: studiedSeconds,
-                onContinue: {
-                    resumeTimer()
-                },
-                onQuit: {
-                    stopBackgroundMusic() // ini untuk quit
-                }
-            )
+        .onChange(of: MusicOff) { oldValue, newValue in
+            print(newValue)
+            if newValue {
+                // stop music
+                stopBackgroundMusic()
+            } else {
+                // play music
+                playBackgroundMusic()
+            }
         }
 
+        
 
-        if breakConfirmation {
-            BreakConfirmation(
-                isPresented: $breakConfirmation,
-                totalSeconds: initialSeconds,
-                RemainingSeconds: remainingSeconds,
-                studiedSeconds: studiedSeconds,
-                breakLimit: $breakLimit,
-                onContinue: {
-                    resumeTimer()
-                }
-            )
-        }
-
-        if finishConfirmation {
-            FinishModalView(
-                isPresented: $finishConfirmation,
-                totalSeconds: initialSeconds,
-                RemainingSeconds: remainingSeconds
-            )
-        }
+        
+  
     }
 
     // MARK: - Timer Logic
@@ -196,5 +218,5 @@ struct FocusSessionView: View {
 }
 
 #Preview{
-    FocusSessionView(isPresented: .constant(true), totalSeconds: 10)
+    FocusSessionView(isPresented: .constant(true), totalSeconds: 1000)
 }

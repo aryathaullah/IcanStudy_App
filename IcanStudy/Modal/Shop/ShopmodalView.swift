@@ -108,7 +108,7 @@ struct ShopmodalView: View {
                         
                         
                         Button(action: {
-                            print("pip")
+                            
                             showShopModal = false
                         }) {
                             Image("red_back_button")
@@ -159,7 +159,7 @@ struct ShopmodalView: View {
                         }
                         .padding()
                     }
-                    .scrollIndicators(.visible)
+                    .scrollIndica.tors(.visible)
                     .position(x:150, y: 10)
 
                     
