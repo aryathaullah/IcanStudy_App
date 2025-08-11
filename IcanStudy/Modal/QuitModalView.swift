@@ -55,6 +55,7 @@ struct QuitModalView: View {
                 .offset(y: -200)
 
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     stopAutoContinueCountdown()
                     isPresented = false
                     onContinue()

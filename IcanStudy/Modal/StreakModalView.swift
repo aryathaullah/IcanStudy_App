@@ -36,6 +36,7 @@ struct StreakModalView: View {
                 .offset(y: -170)
                 
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     isPresented = false
                 }) {
                     Image("red_back_button")

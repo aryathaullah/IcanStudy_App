@@ -58,6 +58,7 @@ struct PreparationModalView: View {
                 .offset(y: -200)
                 
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     isPresented = false
                 }) {
                     Image("red_back_button")
@@ -133,6 +134,7 @@ struct PreparationModalView: View {
                     }
                     
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         if isChecklist1Checked && isChecklist2Checked && isChecklist3Checked {
                             SessionSkipped = true
                         } else {

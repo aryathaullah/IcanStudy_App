@@ -99,6 +99,7 @@ struct BreakConfirmation: View {
 
             VStack {
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     stopAutoContinueCountdown()
                     if breakLimit < 5 {
                             breakLimit += 1
@@ -130,6 +131,7 @@ struct BreakConfirmation: View {
                 }
 
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     stopAutoContinueCountdown()
                     isPresented = false   // tutup modal
                     onContinue()

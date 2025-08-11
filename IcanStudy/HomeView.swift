@@ -101,6 +101,7 @@ struct HomeView: View {
                     
                     
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         showShopModal = true
                     }) {
                         Image("shops_action_button")
@@ -114,6 +115,7 @@ struct HomeView: View {
                     
                     // streak action button
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         showStreakModal = true
                     }) {
                         Image("streak_action_button")

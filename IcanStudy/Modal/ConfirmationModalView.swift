@@ -30,6 +30,7 @@ struct ConfirmationModalView: View {
                 }
             
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     isPresented = false
                 }) {
                     Image("red_back_button")
@@ -47,6 +48,7 @@ struct ConfirmationModalView: View {
                         .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
                     
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         focusSession = true
                     }) {
                         // start timer button

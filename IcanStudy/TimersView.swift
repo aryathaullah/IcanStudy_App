@@ -27,6 +27,7 @@ struct TimersView: View {
         
             
             Button(action: {
+                AudioHelper.playSound(named: "bubble_sfx")
                 dismiss()
             }) {
                 Image("back_button")
@@ -120,6 +121,7 @@ struct TimersView: View {
 
                 // start button
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     selectedTotalSeconds = selectedHour * 3600 + selectedMinute * 60 + selectedSecond
                     showPreparationModal = true
                 }) {

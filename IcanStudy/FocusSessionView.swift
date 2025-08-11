@@ -44,6 +44,7 @@ struct FocusSessionView: View {
             VStack{
                 
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     MusicOff.toggle()
                     print("hii")
                 }) {
@@ -69,6 +70,7 @@ struct FocusSessionView: View {
                         .frame(height: 70)
                     
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         timer?.invalidate()
                         showQuitModal = true
                     })
@@ -81,6 +83,7 @@ struct FocusSessionView: View {
                     .buttonStyle(PlainButtonStyle())
                     
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         timer?.invalidate()
                         breakConfirmation = true
                     }) {

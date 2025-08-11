@@ -38,6 +38,7 @@ struct BreakSessionView: View {
                     .frame(height: 70)
 
                 Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
                     timer?.invalidate()
                     isPresented = false   // tutup modal
                     onContinue()

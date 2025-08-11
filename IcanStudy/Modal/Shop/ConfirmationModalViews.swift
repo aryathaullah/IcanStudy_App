@@ -45,6 +45,7 @@ struct ConfirmationModalViews: View {
 
                 HStack(spacing: 20) {
                     Button("Cancel") {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         onCancel("cancel")
                     }
                     .font(Font.custom("Slackey-Regular", size: 15))
@@ -54,6 +55,7 @@ struct ConfirmationModalViews: View {
                     .cornerRadius(10)
 
                     Button("Buy") {
+                            AudioHelper.playSound(named: "coinsdrop_sfx")
                             if let coin = users.first?.coins {
                                 print("User has \(coin) coins")
                                 if coin >= item.price {

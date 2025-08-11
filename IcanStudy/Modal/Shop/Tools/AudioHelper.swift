@@ -4,16 +4,22 @@ import AVFoundation
 class AudioHelper {
     static var audioPlayer: AVAudioPlayer?
 
-    static func playSound(named fileName: String, withExtension fileExtension: String = "mp3") {
-        if let soundURL = Bundle.main.url(forResource: fileName, withExtension: fileExtension) {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                audioPlayer?.play()
-            } catch {
-                print("Gagal memutar audio: \(error.localizedDescription)")
+    static func playSound(named fileName: String) {
+        let possibleExtensions = ["mp3"] // daftar ekstensi yang didukung
+
+        for ext in possibleExtensions {
+            if let soundURL = Bundle.main.url(forResource: fileName, withExtension: ext) {
+                do {
+                    audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                    audioPlayer?.volume = 0.3
+                    audioPlayer?.play()
+                    return // berhenti setelah berhasil memutar
+                } catch {
+                    print("Gagal memutar audio: \(error.localizedDescription)")
+                    return
+                }
             }
-        } else {
-            print("File audio tidak ditemukan")
         }
+        print("File audio tidak ditemukan")
     }
 }

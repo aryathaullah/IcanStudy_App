@@ -34,6 +34,7 @@ struct NoMoneyShop: View {
             
             Button(action: {
 //                FishStorageManager.resetFishNames()
+                AudioHelper.playSound(named: "bubble_sfx")
                 onQuit()
             }) {
                 Image("red_back_button")
