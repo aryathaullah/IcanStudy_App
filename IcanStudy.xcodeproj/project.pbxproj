@@ -94,6 +94,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		041652CF2E448E5700CD83B1 /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
+		04940B342E49C02F00494CC2 /* Coin Modal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Coin Modal"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +177,7 @@
 		0476736E2E3C5CF700732F21 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				04940B342E49C02F00494CC2 /* Coin Modal */,
 				048FDEC62E41C32400ABE5CE /* WelcomeView.swift */,
 				048FDEC82E41C39400ABE5CE /* WelcomeView2.swift */,
 				049AD9E62E446B3300AB196B /* WelcomeView3.swift */,
@@ -253,6 +255,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				041652CF2E448E5700CD83B1 /* Preview Content */,
+				04940B342E49C02F00494CC2 /* Coin Modal */,
 			);
 			name = IcanStudy;
 			productName = IcanStudy;

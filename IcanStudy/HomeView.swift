@@ -5,6 +5,7 @@ struct HomeView: View {
     @Environment(\.modelContext) private var context
     @Query private var users: [User]
     
+    @State private var showCoinModal = false
     @State private var showShopModal = false
     @State private var showStreakModal = false
     @State private var showSeashellAnimation = true
@@ -37,10 +38,13 @@ struct HomeView: View {
                 
                 // coins indicators
                 ZStack {
-                    Image("coins_indicator")
-                        .resizable()
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                    
+                    Button(action: {
+                        showCoinModal = true
+                    }) {
+                        Image("coins_indicator")
+                            .resizable()
+                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    }
                     
                     Text("\(users.first?.coins ?? 0)")
                         .font(Font.custom("Slackey-Regular", size: 15))
@@ -133,6 +137,10 @@ struct HomeView: View {
                 if showShopModal {
                     ShopmodalView(showShopModal: $showShopModal)
 
+                }
+                
+                if showCoinModal {
+                    ModalCoin(showCoinModal: $showCoinModal)
                 }
                 
             }
