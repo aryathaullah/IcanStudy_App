@@ -38,6 +38,7 @@ struct FinishModalView: View {
                     RoundedRectangle(cornerRadius: 5.0)
                         .fill(Color(#colorLiteral(red: 0.2433364689, green: 0.2634049356, blue: 0.7736426592, alpha: 1)))
                         .frame(width: 220, height: 50)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     Text("FINISH")
                         .font(Font.custom("Slackey-Regular", size: 30))
                         .fontWeight(.bold)
@@ -127,6 +128,7 @@ struct FinishModalView: View {
         if let soundURL = Bundle.main.url(forResource: "finish_sound", withExtension: "mp3") {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.volume = 0.3 // 🔊 Volume kecil (30%)
                 audioPlayer?.play()
             } catch {
                 print("Gagal memutar suara:", error.localizedDescription)
@@ -138,5 +140,5 @@ struct FinishModalView: View {
 }
 
 #Preview {
-    FinishModalView(isPresented: .constant(true), totalSeconds:200, RemainingSeconds: 300)
+    FinishModalView(isPresented: .constant(true), totalSeconds: 200, RemainingSeconds: 300)
 }

@@ -41,7 +41,7 @@ struct NoMoneyShop: View {
                     .frame(width: 69, height: 69)
                     .padding()
             }
-            .position(x: 340, y: 315)
+            .position(x: 340, y: 365)
         }
     }
 }

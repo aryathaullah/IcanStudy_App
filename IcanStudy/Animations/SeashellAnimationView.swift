@@ -6,7 +6,7 @@ struct DummySeashell: Identifiable {
 }
 
 struct SeashellAnimationView: View {
-    let shellCount = 7
+    let shellCount = 7 // Total kerang yang akan keluar
     let endPoint: CGPoint
     let onAnimationFinished: () -> Void
 
@@ -30,11 +30,12 @@ struct SeashellAnimationView: View {
     func startShellAnimation() {
         for i in 0..<shellCount {
             DispatchQueue.main.asyncAfter(deadline: .now() + Double(i) * 0.1) {
-                // ✅ Posisi awal di sekitar coins_indicator (pojok kanan atas)
+                
                 let startX = UIScreen.main.bounds.width - 60
                 let startY = 80.0
-
                 let shell = DummySeashell(position: CGPoint(x: startX, y: startY))
+                // ✅ Posisi awal di sekitar coins_indicator (pojok kanan atas)
+                
                 shells.append(shell)
 
                 withAnimation(.easeInOut(duration: 0.5)) {

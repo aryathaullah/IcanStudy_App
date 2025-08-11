@@ -23,8 +23,7 @@ struct SlideToConfirmButton: View {
             // Text label
             HStack {
                 Text("Slide to Confirm")
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundColor(.black.opacity(dragOffset > barWidth - handleWidth - 10 ? 0 : 0.6))
+                    .font(Font.custom("Slackey-Regular", size: 13))                    .foregroundColor(.black.opacity(dragOffset > barWidth - handleWidth - 10 ? 0 : 0.6))
                     .frame(maxWidth: .infinity)
             }
             

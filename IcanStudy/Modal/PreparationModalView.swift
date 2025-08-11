@@ -46,6 +46,7 @@ struct PreparationModalView: View {
                     RoundedRectangle(cornerRadius: 5.0)
                         .fill(Color(#colorLiteral(red: 0.9402096868, green: 0.3534892797, blue: 0.3253774941, alpha: 1)))
                         .frame(width: 220, height: 50)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     
                     Text("PREPARATION")
                         .font(Font.custom("Slackey-Regular", size: 23))
@@ -64,7 +65,7 @@ struct PreparationModalView: View {
                         .frame(width: 69, height: 69)
                         .padding()
                 }
-                .position(x: 350, y: 225)
+                .position(x: 350, y: 240)
                 
                 // study time
                 VStack{
@@ -99,6 +100,7 @@ struct PreparationModalView: View {
                         }) {
                             Image(systemName: isChecklist1Checked ? "checkmark.square.fill" : "square")
                                 .foregroundColor(.brown)
+                                .font(.system(size: 22))
                         }
                     }
                     
@@ -112,6 +114,7 @@ struct PreparationModalView: View {
                         }) {
                             Image(systemName: isChecklist2Checked ? "checkmark.square.fill" : "square")
                                 .foregroundColor(.brown)
+                                .font(.system(size: 22))
                         }
                     }
                     
@@ -125,6 +128,7 @@ struct PreparationModalView: View {
                         }) {
                             Image(systemName: isChecklist3Checked ? "checkmark.square.fill" : "square")
                                 .foregroundColor(.brown)
+                                .font(.system(size: 22))
                         }
                     }
                     
@@ -145,6 +149,7 @@ struct PreparationModalView: View {
                                 .font(Font.custom("Slackey-Regular", size: 16))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
+                                .offset(x:0, y:-3)
                         }
                         .padding(.leading, 40)
                         .padding(.top, 10)

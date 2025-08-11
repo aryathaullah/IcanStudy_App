@@ -120,7 +120,7 @@ struct HomeView: View {
                             .resizable()
                             .frame(width: 102.49, height: 88.91)
                             .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                            .offset(x:20)
+                            .offset(x:20,y:2)
                     }
                     .buttonStyle(PlainButtonStyle())
                 }

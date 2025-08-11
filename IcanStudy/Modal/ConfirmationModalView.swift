@@ -37,11 +37,11 @@ struct ConfirmationModalView: View {
                         .frame(width: 69, height: 69)
                         .padding()
                 }
-                .position(x: 350, y: 310)
+                .position(x: 350, y: 340)
                 
                 // study time
                 VStack{
-                    Text("You haven't checked all the boxes. Are you sure you want to continue?")
+                    Text("You haven't checked all \n the boxes. Are you sure \n you want to continue?")
                         .font(Font.custom("Slackey-Regular", size: 15))
                         .fontWeight(.bold)
                         .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
@@ -59,6 +59,7 @@ struct ConfirmationModalView: View {
                                 .font(Font.custom("Slackey-Regular", size: 16))
                                 .foregroundColor(.white)
                                 .fontWeight(.bold)
+                                .offset(x:0, y:-3)
                         }
                         .padding(.top, 10)
                     }
@@ -76,4 +77,7 @@ struct ConfirmationModalView: View {
         .transition(.opacity)
         .animation(.easeInOut, value: isPresented)
     }
+}
+#Preview {
+    ConfirmationModalView(isPresented: .constant(true), totalSeconds: 200)
 }

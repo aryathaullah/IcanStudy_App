@@ -45,8 +45,7 @@ struct QuitModalView: View {
                     RoundedRectangle(cornerRadius: 5)
                         .fill(Color(#colorLiteral(red: 0.913, green: 0.26, blue: 0.256, alpha: 1)))
                         .frame(width: 172, height: 43)
-                        .shadow(color: .black.opacity(0.5), radius: 5)
-
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     Text("QUIT")
                         .font(Font.custom("Slackey-Regular", size: 31))
                         .fontWeight(.bold)

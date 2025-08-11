@@ -25,6 +25,7 @@ struct StreakModalView: View {
                     RoundedRectangle(cornerRadius: 5.0)
                         .fill(Color(#colorLiteral(red: 0.9135003686, green: 0.2600500882, blue: 0.2565283477, alpha: 1)))
                         .frame(width: 190, height: 50)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     Text("STREAK")
                         .font(Font.custom("Slackey-Regular", size: 30))
                         .fontWeight(.bold)
@@ -42,7 +43,7 @@ struct StreakModalView: View {
                         .frame(width: 69, height: 69)
                         .padding()
                 }
-                .position(x: 350, y: 260)
+                .position(x: 350, y: 280)
                 
                 VStack {
                     Text("YOUR STREAK HOURS")
@@ -62,7 +63,7 @@ struct StreakModalView: View {
                     }
                     .offset(y: -10)
                 }
-                .offset(y: -80)
+                .offset(y:-40)
 
                 VStack {
                     Text("THAT WAS")
@@ -82,7 +83,7 @@ struct StreakModalView: View {
                     }
                     .offset(y: -10)
                 }
-                .offset(y: 30)
+                .offset(y: 55)
                 
             }
         }

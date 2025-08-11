@@ -64,16 +64,17 @@ struct TimersView: View {
                     .foregroundStyle(Color.white)
                     .fontWeight(.bold)
                     .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    .offset(x:0, y:20)
                 
 
                 // timer picker
-                HStack(spacing: 5) {
+                HStack(spacing: 10) {
                     
                     // hours picker
                     Picker(selection: $selectedHour, label: Text("Hour")) {
                         ForEach(0..<24, id: \.self) { hour in
                             Text(String(format: "%02d", hour))
-                                .font(Font.custom("Slackey-Regular", size: 24))
+                                .font(Font.custom("Slackey-Regular", size: 30))
                                 .foregroundColor(.white)
                                 .tag(hour)
                         }
@@ -83,14 +84,14 @@ struct TimersView: View {
                     .clipped()
                     
                     Text(":")
-                        .font(Font.custom("Slackey-Regular", size: 24))
+                        .font(Font.custom("Slackey-Regular", size: 30))
                         .foregroundColor(.white)
                     
                     // minutes picker
                     Picker(selection: $selectedMinute, label: Text("Minute")) {
                         ForEach(0..<60, id: \.self) { minute in
                             Text(String(format: "%02d", minute))
-                                .font(Font.custom("Slackey-Regular", size: 24))
+                                .font(Font.custom("Slackey-Regular", size: 30))
                                 .foregroundColor(.white)
                                 .tag(minute)
                         }
@@ -100,14 +101,14 @@ struct TimersView: View {
                     .clipped()
                     
                     Text(":")
-                        .font(Font.custom("Slackey-Regular", size: 24))
+                        .font(Font.custom("Slackey-Regular", size: 30))
                         .foregroundColor(.white)
                     
                     // second picker
                     Picker(selection: $selectedSecond, label: Text("Second")) {
                         ForEach(0..<60, id: \.self) { second in
                             Text(String(format: "%02d", second))
-                                .font(Font.custom("Slackey-Regular", size: 24))
+                                .font(Font.custom("Slackey-Regular", size: 30))
                                 .foregroundColor(.white)
                                 .tag(second)
                         }
@@ -123,6 +124,7 @@ struct TimersView: View {
                     showPreparationModal = true
                 }) {
                     GlowButtonView2()
+                        .offset(x:0, y:20)
                 }
                 .buttonStyle(PlainButtonStyle())
             }

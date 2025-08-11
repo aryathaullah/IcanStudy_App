@@ -28,9 +28,6 @@ struct ConfirmationModalViews: View {
                 .shadow(color: .black.opacity(0.5), radius: 5)
             
             VStack(spacing: 20) {
-                Text("Confirm Purchase?")
-                    .font(.title2)
-                    .bold()
 
                 Image(item.imageName)
                     .resizable()
@@ -39,18 +36,20 @@ struct ConfirmationModalViews: View {
                  
                     .clipShape(RoundedRectangle(cornerRadius: 15))
 
-                Text("Buy \(item.name) for \(item.price) coins?")
+                Text("Buy \(item.name) for \n \(item.price) coins?")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                     .frame(width:300)
+                    .font(Font.custom("Slackey-Regular", size: 15))
+                    .offset(x:0, y:-10)
 
                 HStack(spacing: 20) {
                     Button("Cancel") {
                         onCancel("cancel")
                     }
-//                    .padding()
+                    .font(Font.custom("Slackey-Regular", size: 15))
                     .frame(width: 100, height: 40)
-                    .background(Color.gray)
+                    .background(Color(#colorLiteral(red: 0.9019120469, green: 0.2971627937, blue: 0.2898114976, alpha: 0.8470588235)))
                     .foregroundColor(.white)
                     .cornerRadius(10)
 
@@ -65,6 +64,7 @@ struct ConfirmationModalViews: View {
                                     print("Insufficient coins")
                                 }
                             }
+                            
                         else {
                             // Not enough coins
                             onCancel("no money")
@@ -72,17 +72,17 @@ struct ConfirmationModalViews: View {
                         }
                         }
                         .frame(width: 100, height: 40)
-                        .background(Color.blue)
+                        .background(Color(#colorLiteral(red: 0.3064529896, green: 0.3657993078, blue: 0.8219793439, alpha: 0.8470588235)))
                         .foregroundColor(.white)
                         .cornerRadius(10)
+                        .font(Font.custom("Slackey-Regular", size: 15))
                     .padding()
                     .frame(width: 100,height: 40)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
-                    
-                    
                 }
+                .offset(y: -10)
             }
             .padding()
             .frame(width: 300)
@@ -91,6 +91,5 @@ struct ConfirmationModalViews: View {
         }
     }
 }
-
 
 

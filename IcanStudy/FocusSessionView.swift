@@ -63,6 +63,7 @@ struct FocusSessionView: View {
                         .font(Font.custom("Slackey-Regular", size: 53))
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
+                        .shadow(color: .black.opacity(0.2), radius: 6, x: 0, y: 6)
                     
                     Spacer()
                         .frame(height: 70)
@@ -70,7 +71,8 @@ struct FocusSessionView: View {
                     Button(action: {
                         timer?.invalidate()
                         showQuitModal = true
-                    }) {
+                    })
+                    {
                         Image("button_quit")
                             .resizable()
                             .frame(width: 180, height: 52)
@@ -90,6 +92,8 @@ struct FocusSessionView: View {
                     .buttonStyle(PlainButtonStyle())
                 }
                 Spacer()
+                
+                
                 
                 
             }

@@ -42,6 +42,7 @@ struct BreakConfirmation: View {
                     RoundedRectangle(cornerRadius: 5.0)
                         .fill(Color(#colorLiteral(red: 0.2433364689, green: 0.2634049356, blue: 0.7736426592, alpha: 1)))
                         .frame(width: 220, height: 50)
+                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                     Text("BREAK")
                         .font(Font.custom("Slackey-Regular", size: 30))
                         .fontWeight(.bold)
@@ -103,7 +104,7 @@ struct BreakConfirmation: View {
                             breakLimit += 1
                             showBreakSession = true
                         } else {
-                            print("breaknya habis anj, lanjut belajar !!")
+                            print("breaknya habis, lanjut belajar !!")
                         }
                 }) {
                     ZStack {

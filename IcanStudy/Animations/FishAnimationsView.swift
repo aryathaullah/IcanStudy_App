@@ -14,30 +14,29 @@ struct FishAnimationView: View {
     @State private var fishes: [Fish] = []
     @State private var timer: Timer?
     @State private var wigglePhase: CGFloat = 0
-    
     @Binding var refreshFish: Bool
-
+    @State var fishImages = FishStorageManager.getFishNames()
+    
+    
     let screenWidth = UIScreen.main.bounds.width
     let screenHeight = UIScreen.main.bounds.height
-
-    @State var fishImages = FishStorageManager.getFishNames()
     let horizontalSpeed: CGFloat = 0.2
     let verticalSpeed: CGFloat = 0.3
-
     let verticalTopLimit: CGFloat = -100
-    let verticalBottomLimit: CGFloat = UIScreen.main.bounds.height - 20
+    let verticalBottomLimit: CGFloat = UIScreen.main.bounds.height + 20
 
     var body: some View {
         ZStack {
             ForEach(fishes) { fish in
                 Image(fish.imageName)
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 60, height: 50)
                     .scaleEffect(x: fish.movingRight ? 1 : -1, y: 1)
                     .position(x: fish.position.x,
                               y: fish.position.y + sin(wigglePhase + CGFloat(fish.id.hashValue % 100) / 20) * 5) // efek goyang
             }
         }
+        
         .onAppear {
             fishImages = FishStorageManager.getFishNames()
             createFishes()

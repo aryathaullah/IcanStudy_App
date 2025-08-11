@@ -29,5 +29,8 @@ struct GlowButtonView: View {
 }
 
 #Preview {
-    GlowButtonView()
+    ZStack {
+        Color.black
+        GlowButtonView()
+    }
 }

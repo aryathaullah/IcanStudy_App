@@ -18,10 +18,10 @@ struct ShopmodalView: View {
     @State var showSeashellAnimation = false
     
     let items: [ShopItem] = [
-        ShopItem(name: "Cute Nemo", imageName: "f1", price: 20),
+        ShopItem(name: "Cute Nemo", imageName: "f1", price: 28),
         ShopItem(name: "Brave Turtle", imageName: "f2", price: 28),
         ShopItem(name: "Humble Shark", imageName: "f3", price: 22),
-        ShopItem(name: "Shy Dori", imageName: "f4", price: 26),
+        ShopItem(name: "Shy Dory", imageName: "f4", price: 26),
         ShopItem(name: "Mrs. Pufferfish", imageName: "f5", price: 28),
         ShopItem(name: "Cartoon Fish", imageName: "f6", price: 21),
         ShopItem(name: "Lazy Seal", imageName: "f7", price: 43),
@@ -31,7 +31,7 @@ struct ShopmodalView: View {
         ShopItem(name: "Mr. Crab", imageName: "f11", price: 55),
         ShopItem(name: "Patrickk", imageName: "f12", price: 25),
         ShopItem(name: "Octopuster", imageName: "f13", price: 23),
-        ShopItem(name: "Healer Whale", imageName: "f14", price: 29),
+        ShopItem(name: "Healer Orca", imageName: "f14", price: 29),
         ShopItem(name: "Female Seahorse", imageName: "f15", price: 38),
         ShopItem(name: "Angler Fish", imageName: "f16", price: 55),
         ShopItem(name: "Puffy Brother", imageName: "f17", price: 34),
@@ -116,7 +116,7 @@ struct ShopmodalView: View {
                                 .frame(width: 69, height: 69)
                                 .padding()
                         }
-                        .position(x: 300, y: 170)
+                        .position(x: 300, y: 180)
                     }
                     .position(x:150, y: 125)
                     
@@ -146,7 +146,7 @@ struct ShopmodalView: View {
                                         }
                                         .padding(5)
                                         .frame(maxWidth: .infinity)
-                                        .background(Color.blue)
+                                        .background(Color(#colorLiteral(red: 0.3064529896, green: 0.3657993078, blue: 0.8219793439, alpha: 1)))
                                         .foregroundColor(.white)
                                         .cornerRadius(10)
                                     }

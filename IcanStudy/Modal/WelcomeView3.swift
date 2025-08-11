@@ -64,7 +64,7 @@ struct WelcomePageView: View {
                     Image("shops_action_button")
                         .resizable()
                         .frame(width: 69.15, height: 86.92)
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                        .shadow(color: .black.opacity(0.2), radius: 6, x: 0, y: 6)
                         .buttonStyle(PlainButtonStyle())
                     
                     Spacer().frame(width: 150)

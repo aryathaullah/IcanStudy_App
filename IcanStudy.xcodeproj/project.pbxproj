@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0417292C2E3C4D2C00EA56F4 /* ICanStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */; };
-		041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */; };
 		0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */; };
 		0417293C2E3C4EF100EA56F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417293B2E3C4EF100EA56F4 /* HomeView.swift */; };
 		0434834B2E41BD4B006193F8 /* ConfirmationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B5832A2E3F0874005E1A95 /* ConfirmationModalView.swift */; };
@@ -41,6 +40,7 @@
 		049AD9E92E446BCF00AB196B /* FocusFishAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9E82E446BC800AB196B /* FocusFishAnimationView.swift */; };
 		049AD9EB2E446BDF00AB196B /* GlowButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AD9EA2E446BDC00AB196B /* GlowButtonView.swift */; };
 		04A6C74A2E3F50EC003A6E76 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6C7492E3F50EC003A6E76 /* User.swift */; };
+		04A917222E497BC9003C371C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04A917212E497BC9003C371C /* Assets.xcassets */; };
 		04B583252E3DE2F7005E1A95 /* FishAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */; };
 		04B583272E3DE466005E1A95 /* TimersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583262E3DE466005E1A95 /* TimersView.swift */; };
 		04B583292E3DEA63005E1A95 /* PreparationModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B583282E3DEA63005E1A95 /* PreparationModalView.swift */; };
@@ -50,7 +50,6 @@
 /* Begin PBXFileReference section */
 		041729282E3C4D2C00EA56F4 /* IcanStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IcanStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICanStudy.swift; sourceTree = "<group>"; };
-		0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041729392E3C4D8100EA56F4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0417293B2E3C4EF100EA56F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		043726DC2E4313FE001F96F0 /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		049AD9E82E446BC800AB196B /* FocusFishAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFishAnimationView.swift; sourceTree = "<group>"; };
 		049AD9EA2E446BDC00AB196B /* GlowButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowButtonView.swift; sourceTree = "<group>"; };
 		04A6C7492E3F50EC003A6E76 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		04A917212E497BC9003C371C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B583242E3DE2F7005E1A95 /* FishAnimationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishAnimationsView.swift; sourceTree = "<group>"; };
 		04B583262E3DE466005E1A95 /* TimersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimersView.swift; sourceTree = "<group>"; };
 		04B583282E3DEA63005E1A95 /* PreparationModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationModalView.swift; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				041729282E3C4D2C00EA56F4 /* IcanStudy.app */,
+				04A917212E497BC9003C371C /* Assets.xcassets */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,7 +141,6 @@
 				0476736E2E3C5CF700732F21 /* Modal */,
 				04B583302E3F2914005E1A95 /* Sound */,
 				04B583232E3DE2DC005E1A95 /* Animations */,
-				0417292F2E3C4D2D00EA56F4 /* Assets.xcassets */,
 				047C5F482E41A8A300005C88 /* Slackey-Regular.ttf */,
 			);
 			path = IcanStudy;
@@ -301,8 +301,8 @@
 				0417293A2E3C4D8100EA56F4 /* Launch Screen.storyboard in Resources */,
 				048FDEF12E4258C200ABE5CE /* aquarium-sound-6891.mp3 in Resources */,
 				049AD9DF2E43BCC500AB196B /* Launchscreen.storyboard in Resources */,
+				04A917222E497BC9003C371C /* Assets.xcassets in Resources */,
 				047C5F492E41A8A300005C88 /* Slackey-Regular.ttf in Resources */,
-				041729302E3C4D2D00EA56F4 /* Assets.xcassets in Resources */,
 				0496DA0F2E45982400B7FC60 /* underwatersounds.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
