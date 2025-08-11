@@ -2,6 +2,8 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
+    @State private var lightMove: CGFloat = -200
+    
     @Environment(\.modelContext) private var context
     @Query private var users: [User]
     
@@ -31,6 +33,28 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
+                
+                ZStack {
+                    
+                    // Sunlight beams layer
+                    ForEach(0..<5, id: \.self) { i in
+                        SunlightBeam()
+                            .rotationEffect(.degrees(Double(i) * 15))
+                            .offset(y: lightMove)
+                            .opacity(0.5)
+                            .blendMode(.screen)
+                    }
+                }
+                .onAppear {
+                    withAnimation(
+                        Animation.easeInOut(duration: 6)
+                            .repeatForever(autoreverses: true)
+                    ) {
+                        lightMove = 200
+                    }
+                }
+                
+                
                 
                 // fish animations
                 FishAnimationView(refreshFish: $refreshFishes)
@@ -126,6 +150,8 @@ struct HomeView: View {
                 }
                 .offset(y: 350)
                 
+                
+                
                 if showStreakModal {
                     StreakModalView(isPresented: $showStreakModal)
                 }
@@ -145,6 +171,21 @@ struct HomeView: View {
 
     }
 
+}
+
+struct SunlightBeam: View {
+    var body: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [
+                Color.white.opacity(0.4),
+                Color.clear
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .frame(width: 100, height: 500)
+        .blur(radius: 30)
+    }
 }
 
 #Preview {
