@@ -134,7 +134,7 @@ struct PreparationModalView: View {
                     }
                     
                     Button(action: {
-                        AudioHelper.playSound(named: "bubble_sfx")
+//                        AudioHelper.playSound(named: "bubble_sfx")
                         if isChecklist1Checked && isChecklist2Checked && isChecklist3Checked {
                             SessionSkipped = true
                         } else {

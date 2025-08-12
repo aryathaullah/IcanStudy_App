@@ -133,7 +133,7 @@ struct ShopmodalView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                     Button(action: {
-                                        AudioHelper.playSound(named: "bubble_sfx")
+//                                        AudioHelper.playSound(named: "bubble_sfx")
                                         selectedItem = item
                                     }) {
                                         HStack(spacing: 4) {
