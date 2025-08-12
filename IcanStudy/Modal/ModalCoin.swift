@@ -24,15 +24,7 @@ struct ModalCoin: View {
                     .frame(width: 280, height: 160)
                     .shadow(color: .black.opacity(0.5), radius: 5)
                 
-                Button(action: {
-                    showCoinModal = false
-                }) {
-                    Image("red_back_button")
-                        .resizable()
-                        .frame(width: 69, height: 69)
-                        .padding()
-                }
-                .position(x: 340, y: 315)
+                
                 
                 VStack(spacing: 20) {
                     Spacer()
@@ -61,6 +53,17 @@ struct ModalCoin: View {
                     Spacer()
                 }
                 .offset(y: 0)
+                
+                Button(action: {
+                    AudioHelper.playSound(named: "bubble_sfx")
+                    showCoinModal = false
+                }) {
+                    Image("red_back_button")
+                        .resizable()
+                        .frame(width: 69, height: 69)
+                        .padding()
+                }
+                .position(x: 340, y:340)
                 
             }
                 

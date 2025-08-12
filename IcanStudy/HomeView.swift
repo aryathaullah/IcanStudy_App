@@ -39,6 +39,7 @@ struct HomeView: View {
                 // coins indicators
                 ZStack {
                     Button(action: {
+                        AudioHelper.playSound(named: "bubble_sfx")
                         showCoinModal = true
                     }) {
                         Image("coins_indicator")
@@ -106,6 +107,7 @@ struct HomeView: View {
                     
                     Button(action: {
                         showShopModal = true
+                        AudioHelper.playSound(named: "bubble_sfx")
                     }) {
                         Image("shops_action_button")
                             .resizable()
@@ -119,6 +121,7 @@ struct HomeView: View {
                     // streak action button
                     Button(action: {
                         showStreakModal = true
+                        AudioHelper.playSound(named: "bubble_sfx")
                     }) {
                         Image("streak_action_button")
                             .resizable()
