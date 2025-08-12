@@ -8,166 +8,72 @@ struct HomeView: View {
     @State private var showCoinModal = false
     @State private var showShopModal = false
     @State private var showStreakModal = false
-    @State private var showSeashellAnimation = true
     
     @State var refreshFishes = false
     @State private var lightMove: CGFloat = -200
     
-    @State private var todayStudyHours = 0
-
-        var formattedTodaySession: String {
-            let hours = todayStudyHours / 3600
-            let minutes = (todayStudyHours % 3600) / 60
-            let seconds = todayStudyHours % 60
-            return String(format: "%02d : %02d : %02d", hours, minutes, seconds)
-        }
-    
     var body: some View {
-        
-        NavigationStack{
-            
+        NavigationStack {
             ZStack {
-                
-                // background app ( sea )
+                // background laut
                 Image("background_app")
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
                 
+                // efek sunlight beams
                 ZStack {
-                   ForEach(0..<5, id: \.self) { i in
-                       SunlightBeam()
-                           .rotationEffect(.degrees(Double(i) * 15))
-                           .offset(y: lightMove)
-                           .opacity(0.5)
-                           .blendMode(.screen)
-                   }
-               }
+                    ForEach(0..<12, id: \.self) { i in
+                        SunlightBeam(
+                            width: CGFloat.random(in: 80...150),
+                            blur: CGFloat.random(in: 20...50)
+                        )
+                        .rotationEffect(.degrees(Double(i) * 30 + Double.random(in: -10...10)))
+                        .offset(y: lightMove + CGFloat.random(in: -50...50))
+                        .opacity(Double.random(in: 0.15...0.5))
+                        .blendMode(.screen)
+                    }
+                }
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
+                        lightMove = 50
+                    }
+                }
                 
-                // fish animations
+                // animasi ikan
                 FishAnimationView(refreshFish: $refreshFishes)
                 
-                // coins indicators
-                ZStack {
-                    Button(action: {
-                        AudioHelper.playSound(named: "bubble_sfx")
-                        showCoinModal = true
-                    }) {
-                        Image("coins_indicator")
-                            .resizable()
-                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                    }
-                    
-                    Text("\(users.first?.coins ?? 0)")
-                        .font(Font.custom("Slackey-Regular", size: 15))
-                        .foregroundStyle(.coin)
-                        .opacity(0.7)
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                    
-                        .padding(.leading, 40)
-                }
-                .frame(width: 129, height: 52)
-                .padding(.top, -370)
-                .padding(.leading, 250)
+                // indikator coins
+                coinIndicator
                 
-//                Button(action: {
-//                    currentFishNames.removeAll()
-//                    FishStorageManager.resetFishNames()
-//                    print(FishStorageManager.getFishNames())
-//                    //nanti ini bkl bekerja, sementra utk reset button
-//                }) {
-//                    Image("red_back_button")
-//                        .resizable()
-//                        .frame(width: 69, height: 69)
-//                        .padding()
-//                }
-//                .position(x: 300, y: 170)
-    
-                // home components
-                VStack {
-                    
-                    // home title
-                    Text("Today's Study Time")
-                        .font(Font.custom("Slackey-Regular", size: 25))
-                        .foregroundStyle(Color.white)
-                        .fontWeight(.bold)
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                    
-                    
-                    // user's study hours
-                    Text(StudySessionManager.getTotalTimeToday(context: context))
-                        .font(Font.custom("Slackey-Regular", size: 50))
-                        .foregroundStyle(Color.white)
-                        .fontWeight(.bold)
-                        .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                    
-                    
-                    
-                    NavigationLink(destination: TimersView()) {
-                        ZStack {
-                            GlowButtonView()
-                        }
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                }
-                .offset(y: -125)
+                // title & timer
+                titleSection
                 
-                // main action button
-                HStack {
-                    
-                    
-                    Button(action: {
-                        showShopModal = true
-                        AudioHelper.playSound(named: "bubble_sfx")
-                    }) {
-                        Image("shops_action_button")
-                            .resizable()
-                            .frame(width: 69.15, height: 86.92)
-                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    Spacer().frame(width: 150)
-                    
-                    // streak action button
-                    Button(action: {
-                        showStreakModal = true
-                        AudioHelper.playSound(named: "bubble_sfx")
-                    }) {
-                        Image("streak_action_button")
-                            .resizable()
-                            .frame(width: 102.49, height: 88.91)
-                            .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
-                            .offset(x:20)
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                }
-                .offset(y: 350)
+                // tombol utama
+                actionButtons
                 
+                // modals
                 if showStreakModal {
                     StreakModalView(isPresented: $showStreakModal)
                 }
-                
                 if showShopModal {
                     ShopmodalView(showShopModal: $showShopModal)
-
                 }
-                
                 if showCoinModal {
                     ModalCoin(showCoinModal: $showCoinModal)
                 }
-                
             }
             .navigationBarBackButtonHidden(true)
             .onChange(of: showShopModal) { oldValue, newValue in
-                print("SHOW SHOP MODAL")
                 refreshFishes.toggle()
             }
         }
-
     }
     
     struct SunlightBeam: View {
+        var width: CGFloat
+        var blur: CGFloat
+        
         var body: some View {
             LinearGradient(
                 gradient: Gradient(colors: [
@@ -177,11 +83,97 @@ struct HomeView: View {
                 startPoint: .top,
                 endPoint: .bottom
             )
-            .frame(width: 100, height: 500)
-            .blur(radius: 30)
+            .frame(width: width, height: 600)
+            .blur(radius: blur)
         }
     }
-
+    
+    // MARK: - Bagian UI
+    var coinIndicator: some View {
+        ZStack {
+            Button(action: {
+                AudioHelper.playSound(named: "bubble_sfx")
+                showCoinModal = true
+            }) {
+                Image("coins_indicator")
+                    .resizable()
+                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+            }
+            
+            Text("\(users.first?.coins ?? 0)")
+                .font(Font.custom("Slackey-Regular", size: 15))
+                .foregroundStyle(.coin)
+                .opacity(0.7)
+                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                .padding(.leading, 40)
+        }
+        .frame(width: 129, height: 52)
+        .padding(.top, -370)
+        .padding(.leading, 250)
+        
+//                        Button(action: {
+//                            currentFishNames.removeAll()
+//                            FishStorageManager.resetFishNames()
+//                            print(FishStorageManager.getFishNames())
+//                            //nanti ini bkl bekerja, sementra utk reset button
+//                        }) {
+//                            Image("red_back_button")
+//                                .resizable()
+//                                .frame(width: 69, height: 69)
+//                                .padding()
+//                        }
+//                        .position(x: 300, y: 170)
+    }
+    
+    var titleSection: some View {
+        VStack {
+            Text("Today's Study Time")
+                .font(Font.custom("Slackey-Regular", size: 25))
+                .foregroundStyle(Color.white)
+                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+            
+            Text(StudySessionManager.getTotalTimeToday(context: context))
+                .font(Font.custom("Slackey-Regular", size: 50))
+                .foregroundStyle(Color.white)
+                .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+            
+            NavigationLink(destination: TimersView()) {
+                GlowButtonView()
+            }
+            .buttonStyle(PlainButtonStyle())
+        }
+        .offset(y: -125)
+    }
+    
+    var actionButtons: some View {
+        HStack {
+            Button(action: {
+                showShopModal = true
+                AudioHelper.playSound(named: "bubble_sfx")
+            }) {
+                Image("shops_action_button")
+                    .resizable()
+                    .frame(width: 69.15, height: 86.92)
+                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+            }
+            .buttonStyle(PlainButtonStyle())
+            
+            Spacer().frame(width: 150)
+            
+            Button(action: {
+                showStreakModal = true
+                AudioHelper.playSound(named: "bubble_sfx")
+            }) {
+                Image("streak_action_button")
+                    .resizable()
+                    .frame(width: 102.49, height: 88.91)
+                    .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
+                    .offset(x: 20)
+            }
+            .buttonStyle(PlainButtonStyle())
+        }
+        .offset(y: 350)
+    }
 }
 
 #Preview {
