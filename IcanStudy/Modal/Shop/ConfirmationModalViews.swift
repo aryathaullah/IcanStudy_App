@@ -18,6 +18,7 @@ struct ConfirmationModalViews: View {
             Color.black.opacity(0.6)
                 .ignoresSafeArea()
 
+            
             RoundedRectangle(cornerRadius: 25.0)
                 .fill(Color(#colorLiteral(red: 0.792, green: 0.573, blue: 0.316, alpha: 1)))
                 .frame(width: 302, height: 300)
@@ -26,6 +27,16 @@ struct ConfirmationModalViews: View {
                 .fill(Color(#colorLiteral(red: 1, green: 0.94, blue: 0.78, alpha: 1)))
                 .frame(width: 280, height: 280)
                 .shadow(color: .black.opacity(0.5), radius: 5)
+            
+            Button(action: {
+                            onCancel("cancel")
+                        }) {
+                            Image("red_back_button")
+                                .resizable()
+                                .frame(width: 69, height: 69)
+                                .padding()
+                                .position(x: 340, y: 300)
+            }
             
             VStack(spacing: 20) {
 
@@ -43,22 +54,12 @@ struct ConfirmationModalViews: View {
                     .font(Font.custom("Slackey-Regular", size: 15))
                     .offset(x:0, y:-10)
 
-                HStack(spacing: 20) {
-                    Button("Cancel") {
-                        AudioHelper.playSound(named: "bubble_sfx")
-                        onCancel("cancel")
-                    }
-                    .font(Font.custom("Slackey-Regular", size: 15))
-                    .frame(width: 100, height: 40)
-                    .background(Color(#colorLiteral(red: 0.9019120469, green: 0.2971627937, blue: 0.2898114976, alpha: 0.8470588235)))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
-
                     Button("Buy") {
-                            AudioHelper.playSound(named: "coinsdrop_sfx")
+                            
                             if let coin = users.first?.coins {
                                 print("User has \(coin) coins")
                                 if coin >= item.price {
+                                    AudioHelper.playSound(named: "coinsdrop_sfx")
                                     onConfirm()
                                 } else {
                                     // Not enough coins
@@ -83,8 +84,7 @@ struct ConfirmationModalViews: View {
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(10)
-                }
-                .offset(y: -10)
+                    .offset(y: -10)
             }
             .padding()
             .frame(width: 300)

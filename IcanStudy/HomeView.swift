@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var showSeashellAnimation = true
     
     @State var refreshFishes = false
+    @State private var lightMove: CGFloat = -200
     
     @State private var todayStudyHours = 0
 
@@ -32,6 +33,16 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFill()
                     .ignoresSafeArea()
+                
+                ZStack {
+                   ForEach(0..<5, id: \.self) { i in
+                       SunlightBeam()
+                           .rotationEffect(.degrees(Double(i) * 15))
+                           .offset(y: lightMove)
+                           .opacity(0.5)
+                           .blendMode(.screen)
+                   }
+               }
                 
                 // fish animations
                 FishAnimationView(refreshFish: $refreshFishes)
@@ -151,6 +162,21 @@ struct HomeView: View {
             }
         }
 
+    }
+    
+    struct SunlightBeam: View {
+        var body: some View {
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.white.opacity(0.4),
+                    Color.clear
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .frame(width: 100, height: 500)
+            .blur(radius: 30)
+        }
     }
 
 }
