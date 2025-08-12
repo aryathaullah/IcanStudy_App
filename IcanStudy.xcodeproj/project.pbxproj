@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -98,6 +98,10 @@
 		04B583312E3F2932005E1A95 /* start_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = start_sound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		04AF13212E4AC94E00F5BABA /* Preview Content */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Preview Content"; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		041729252E3C4D2C00EA56F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -130,7 +134,7 @@
 		0417292A2E3C4D2C00EA56F4 /* IcanStudy */ = {
 			isa = PBXGroup;
 			children = (
-				0478D4992E49C11600CABCF0 /* Preview Content */,
+				04AF13212E4AC94E00F5BABA /* Preview Content */,
 				047673672E3C53C400732F21 /* Info.plist */,
 				0417292B2E3C4D2C00EA56F4 /* ICanStudy.swift */,
 				049AD9DE2E43BCC500AB196B /* Launchscreen.storyboard */,
@@ -191,13 +195,6 @@
 				048FDECA2E41C61800ABE5CE /* FinishModalView.swift */,
 			);
 			path = Modal;
-			sourceTree = "<group>";
-		};
-		0478D4992E49C11600CABCF0 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		04970DE02E431947009D3B23 /* Recovered References */ = {
@@ -262,6 +259,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				04AF13212E4AC94E00F5BABA /* Preview Content */,
 			);
 			name = IcanStudy;
 			productName = IcanStudy;
