@@ -11,7 +11,7 @@ class AudioHelper {
             if let soundURL = Bundle.main.url(forResource: fileName, withExtension: ext) {
                 do {
                     audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
-                    audioPlayer?.volume = 0.3
+                    audioPlayer?.volume = 0.1
                     audioPlayer?.play()
                     return // berhenti setelah berhasil memutar
                 } catch {
