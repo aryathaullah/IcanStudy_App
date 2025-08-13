@@ -174,7 +174,7 @@ struct FishAnimationView: View {
                     if newFish.randomMoveTimer <= 0 {
                         newFish.movingRight = Bool.random()
                         // 🎯 70% kemungkinan bergerak ke bawah
-                        newFish.movingUp = Double.random(in: 0...1) > 0.7 ? true : false
+                        newFish.movingUp = Double.random(in: 0...1) > 0.525 ? true : false
                         newFish.randomMoveTimer = Double.random(in: 1...4)
                         if Bool.random() {
                             newFish.idleTimer = Double.random(in: 0.3...1.0)

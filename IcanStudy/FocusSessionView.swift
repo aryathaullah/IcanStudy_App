@@ -49,10 +49,10 @@ struct FocusSessionView: View {
                     print("hii")
                 }) {
                     Image(MusicOff ? "music_off" : "music_on")
-                        .frame(width: 20, height: 20)
+                        .frame(width: 50, height: 50)
                         .shadow(color: .black.opacity(0.3), radius: 6, x: 0, y: 6)
                 }
-                .offset(x:150, y:70)
+                .offset(x:150, y:50)
             
                 
                 Spacer()
@@ -65,6 +65,9 @@ struct FocusSessionView: View {
                         .foregroundStyle(Color.white)
                         .fontWeight(.bold)
                         .shadow(color: .black.opacity(0.2), radius: 6, x: 0, y: 6)
+                        .onAppear {
+                                            UIApplication.shared.isIdleTimerDisabled = true
+                                        }
                     
                     Spacer()
                         .frame(height: 70)
@@ -94,6 +97,7 @@ struct FocusSessionView: View {
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
+                .offset(y:-50)
                 Spacer()
                 
                 

@@ -75,7 +75,7 @@ struct ConfirmationModalViews: View {
                         }
                         }
                         .frame(width: 100, height: 40)
-                        .background(Color(#colorLiteral(red: 0.3064529896, green: 0.3657993078, blue: 0.8219793439, alpha: 0.8470588235)))
+                        .background(Color(#colorLiteral(red: 0.3064529896, green: 0.3657993078, blue: 0.8219793439, alpha: 1)))
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .font(Font.custom("Slackey-Regular", size: 15))
