@@ -29,6 +29,7 @@ struct ModalCoin: View {
                 VStack(spacing: 20) {
                     Spacer()
                     Text("Study Time Converter")
+                        .foregroundStyle(Color(#colorLiteral(red: 0.7611408234, green: 0.5822563767, blue: 0.4629541636, alpha: 1)))
                         .multilineTextAlignment(.center)
                         .bold()
                         .frame(width: 250)

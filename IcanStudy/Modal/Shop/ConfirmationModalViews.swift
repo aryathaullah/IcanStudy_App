@@ -53,6 +53,7 @@ struct ConfirmationModalViews: View {
                     .frame(width:300)
                     .font(Font.custom("Slackey-Regular", size: 15))
                     .offset(x:0, y:-10)
+                    .foregroundStyle(Color.black)
 
                     Button("Buy") {
                             
