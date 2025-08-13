@@ -23,6 +23,19 @@ struct HomeView: View {
                 
                 // efek sunlight beams
                 ZStack {
+//                    Button(action: {
+//                        currentFishNames.removeAll()
+//                        FishStorageManager.resetFishNames()
+//                        print(FishStorageManager.getFishNames())
+//                        //nanti ini bkl bekerja, sementra utk resebutton
+//                    }) {
+//                        Image("red_back_button")
+//                            .resizable()
+//                            .frame(width: 69, height: 69)
+//                            .padding()
+//                    }
+//                    .position(x: 300, y: 170)
+                    
                     ForEach(0..<12, id: \.self) { i in
                         SunlightBeam(
                             width: CGFloat.random(in: 80...150),
@@ -111,18 +124,7 @@ struct HomeView: View {
         .padding(.top, -370)
         .padding(.leading, 250)
         
-//                        Button(action: {
-//                            currentFishNames.removeAll()
-//                            FishStorageManager.resetFishNames()
-//                            print(FishStorageManager.getFishNames())
-//                            //nanti ini bkl bekerja, sementra utk reset button
-//                        }) {
-//                            Image("red_back_button")
-//                                .resizable()
-//                                .frame(width: 69, height: 69)
-//                                .padding()
-//                        }
-//                        .position(x: 300, y: 170)
+                        
     }
     
     var titleSection: some View {
