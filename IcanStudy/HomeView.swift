@@ -23,18 +23,7 @@ struct HomeView: View {
                 
                 // efek sunlight beams
                 ZStack {
-//                    Button(action: {
-//                        currentFishNames.removeAll()
-//                        FishStorageManager.resetFishNames()
-//                        print(FishStorageManager.getFishNames())
-//                        //nanti ini bkl bekerja, sementra utk resebutton
-//                    }) {
-//                        Image("red_back_button")
-//                            .resizable()
-//                            .frame(width: 69, height: 69)
-//                            .padding()
-//                    }
-//                    .position(x: 300, y: 170)
+                
                     
                     ForEach(0..<12, id: \.self) { i in
                         SunlightBeam(
@@ -75,6 +64,30 @@ struct HomeView: View {
                 if showCoinModal {
                     ModalCoin(showCoinModal: $showCoinModal)
                 }
+                
+//                Button(action: {
+//                    currentFishNames.removeAll()
+//                    FishStorageManager.resetFishNames()
+//                    print(FishStorageManager.getFishNames())
+//                    //nanti ini bkl bekerja, sementra utk resebutton
+//                }) {
+//                    Image("red_back_button")
+//                        .resizable()
+//                        .frame(width: 69, height: 69)
+//                        .padding()
+//                }
+//                .position(x: 300, y: 170)
+//                    
+//                    Button(action: {
+//                        CoinControl.rewardCoins(forSeconds: 3000, context: context)
+//                        //nanti ini bkl bekerja, sementra utk resebutton
+//                    }) {
+//                        Image("red_back_button")
+//                            .resizable()
+//                            .frame(width: 69, height: 69)
+//                            .padding()
+//                    }
+//                    .position(x: 150, y: 170)
             }
             .navigationBarBackButtonHidden(true)
             .onChange(of: showShopModal) { oldValue, newValue in
